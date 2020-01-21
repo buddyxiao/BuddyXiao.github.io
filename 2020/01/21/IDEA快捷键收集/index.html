@@ -4,10 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Spring学习, 个人博客">
-    <meta name="description" content="Spring学习
-IoC的操作ApplicationContext ac = new ClassPathXmlApplicationContext(&amp;quot;ApplicationContext.xml&amp;quot;);
-User user">
+    <meta name="keywords" content="Win 10 版本, 个人博客">
+    <meta name="description" content="Win 10 版本
+ctrl + alt + v          将方法内的参数抽取出来ctrl + shift   上下键      将当前代码与上下代码交换位置ctrl + shift + n       查找文件ctrl + n  ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@ User user">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Spring学习 | 个人博客</title>
+    <title>Win 10 版本 | 个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -305,12 +304,12 @@ User user">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Spring学习</h1>
+                    <h1 class="description center-align post-title">Win 10 版本</h1>
                 </div>
             </div>
         </div>
@@ -427,8 +426,8 @@ User user">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/spring/">
-                                <span class="chip bg-color">spring</span>
+                            <a href="/tags/skill/">
+                                <span class="chip bg-color">skill</span>
                             </a>
                         
                     </div>
@@ -439,8 +438,8 @@ User user">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/web%E6%8A%80%E6%9C%AF/" class="post-category">
-                                web技术
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                工具
                             </a>
                         
                     </div>
@@ -452,7 +451,7 @@ User user">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-11
+                    2020-01-21
                 </div>
                 
 
@@ -469,94 +468,9 @@ User user">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Spring学习"><a href="#Spring学习" class="headerlink" title="Spring学习"></a>Spring学习</h1><p><img src="../../../../images/spring-overview.png" alt="spring-overview"></p>
-<h2 id="IoC的操作"><a href="#IoC的操作" class="headerlink" title="IoC的操作"></a>IoC的操作</h2><pre><code class="java">ApplicationContext ac = new ClassPathXmlApplicationContext(&quot;ApplicationContext.xml&quot;);
-User user = (User) ac.getBean(&quot;user&quot;);</code></pre>
-<h3 id="bean配置"><a href="#bean配置" class="headerlink" title="bean配置"></a>bean配置</h3><p><strong>在applicationContext.xml文件中</strong></p>
-<pre><code class="xml">&lt;bean name=&quot;user&quot; class=&quot;com.shop.domain.User&quot; scope=&quot;prototype&quot;&gt;&lt;/bean&gt;</code></pre>
-<blockquote>
-<p>name：类的别名</p>
-<p>class：填写类的全限定名</p>
-<p>scope：spring框架创建的对象的范围</p>
-<p>​                singleton ：单例模式  （默认，整个项目中的对象只有一份）</p>
-<p>​                prototype：多例模式（在项目中每次new出来都是一个全新的）</p>
+                <h1 id="Win-10-版本"><a href="#Win-10-版本" class="headerlink" title="Win 10 版本"></a>Win 10 版本</h1><blockquote>
+<p>ctrl + alt + v          将方法内的参数抽取出来<br>ctrl + shift   上下键      将当前代码与上下代码交换位置<br>ctrl + shift + n       查找文件<br>ctrl + n    查找类<br>alt  + enter    导包 补全<br>shift + enter   跳到下一行<br>ctrl + alt +enter  将当前代码移到下一行，且光标留在当前行<br>ctrl + x        删除当前行(ctrl+y)<br>ctrl + shift + F12        收起展开<br>ctrl + insert    生成代码（如get ,set方法，构造函数）<br>ctrl + space    代码提示<br>ctrl + p   方法参数提示<br>ctrl + shift +space   自动补全代码<br>ctrl + e    打开最近文件<br>ctrl + w  扩大代码选中<br>ctrl+alt + l   格式化代码<br>ctrl + alt + o   移除没有用的包</p>
 </blockquote>
-<p><strong>导入其他配置文件：</strong></p>
-<pre><code class="xml">&lt;import resource=&quot;com/shop/domain/applicationContext.xml&quot;&gt;&lt;/import&gt;</code></pre>
-<blockquote>
-<p>resource：填写引入配置文件的路径</p>
-</blockquote>
-<h3 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h3><h4 id="1-注入方式"><a href="#1-注入方式" class="headerlink" title="1. 注入方式"></a>1. <strong>注入方式</strong></h4><h6 id="1-1-setter方法注入-一般"><a href="#1-1-setter方法注入-一般" class="headerlink" title="1.1 setter方法注入(一般)"></a>1.1 setter方法注入(一般)</h6><blockquote>
-<pre><code class="xml">&lt;!-- 注册userService --&gt;
-&lt;bean id=&quot;userService&quot; class=&quot;com.shop.service.impl.UserService&quot;&gt;
-    &lt;property name=&quot;userDao&quot; ref=&quot;userDaoMyBatis&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-&lt;!-- 注册mybatis实现的dao --&gt;
-&lt;bean id=&quot;userDaoMyBatis&quot; class=&quot;com.shop.dao.impl.UserDaoMyBatis&quot;&gt;&lt;/bean&gt;</code></pre>
-<pre><code class="java">public class UserService implements IUserService {
-
-    private IUserDao userDao1;
-
-    public void setUserDao(IUserDao userDao1) {
-        this.userDao1 = userDao1;
-    }
-    public void loginUser() {
-        userDao1.loginUser();
-    }
-}</code></pre>
-</blockquote>
-<h6 id="1-2-构造方法注入"><a href="#1-2-构造方法注入" class="headerlink" title="1.2 构造方法注入"></a>1.2 构造方法注入</h6><blockquote>
-<pre><code class="xml">&lt;!-- 注册userService --&gt;
-&lt;bean id=&quot;userService&quot; class=&quot;com.shop.service.impl.UserService&quot;&gt;
-    &lt;constructor-arg name=&quot;userDao&quot; ref=&quot;userDaoJdbc&quot;&gt;&lt;/constructor-arg&gt;
-    &lt;constructor-arg name=&quot;user&quot; ref=&quot;user&quot;&gt;&lt;/constructor-arg&gt;
-&lt;/bean&gt;
-&lt;!-- 注册实体User类，用于测试 --&gt;
-&lt;bean id=&quot;user&quot; class=&quot;com.shop.entity.User&quot;&gt;&lt;/bean&gt;
-&lt;!-- 注册jdbc实现的dao --&gt;
-&lt;bean id=&quot;userDaoJdbc&quot; class=&quot;com.shop.dao.impl.UserDaoJdbc&quot;&gt;&lt;/bean&gt;</code></pre>
-<pre><code class="java">public class UserService implements IUserService {
-
-    private IUserDao userDao;
-    private User user;
-
-    public UserService(IUserDao userDao, User user) {
-        this.userDao = userDao;
-        this.user = user;
-    }
-    public void loginUser() {
-        userDao.loginUser();
-    }
-}</code></pre>
-</blockquote>
-<h6 id="1-3-基于注解注入"><a href="#1-3-基于注解注入" class="headerlink" title="1.3 基于注解注入"></a>1.3 基于注解注入</h6><h4 id="2-注入类型"><a href="#2-注入类型" class="headerlink" title="2. 注入类型"></a>2. <strong>注入类型</strong></h4><blockquote>
-<p>基本类型    int    String</p>
-<p>引用类型   （对象）</p>
-<p>复杂类型    list     map     property   </p>
-</blockquote>
-<h6 id="2-1-注入基本类型"><a href="#2-1-注入基本类型" class="headerlink" title="2.1 注入基本类型"></a>2.1 <strong>注入基本类型</strong></h6><pre><code class="xml">&lt;bean name=&quot;user&quot; class=&quot;com.shop.domain.User&quot; scope=&quot;prototype&quot;&gt;
-    &lt;property name=&quot;name&quot; value=&quot;潘金莲&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;age&quot; value=&quot;18&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;</code></pre>
-<blockquote>
-<p>name 属性：填写你要注入的字段名称</p>
-<p>value 属性：填写你要注入的字段名称对应的值</p>
-</blockquote>
-<h6 id="2-2-注入引用类型"><a href="#2-2-注入引用类型" class="headerlink" title="2.2 注入引用类型"></a>2.2 <strong>注入引用类型</strong></h6><blockquote>
-<ul>
-<li>先将要注入的对象使用spring容器创建出来</li>
-<li>再将创建好的对象注入进来</li>
-</ul>
-</blockquote>
-<pre><code class="xml">&lt;bean name=&quot;carName&quot; class=&quot;com.shop.domain.Car&quot; scope=&quot;prototype&quot;&gt;
-    &lt;property name=&quot;name&quot; value=&quot;保时捷&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;color&quot; value=&quot;黄色&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-&lt;bean name=&quot;user&quot; class=&quot;com.shop.domain.User&quot; scope=&quot;prototype&quot;&gt;
-    &lt;property name=&quot;name&quot; value=&quot;潘金莲&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;age&quot; value=&quot;18&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;car&quot; ref=&quot;carName&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;</code></pre>
 
             </div>
             <hr/>
@@ -582,7 +496,7 @@ User user = (User) ac.getBean(&quot;user&quot;);</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/01/11/Spring%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2020/01/11/Spring%E5%AD%A6%E4%B9%A0/</a>
+                    <a href="http://yoursite.com/2020/01/21/IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%94%B6%E9%9B%86/">http://yoursite.com/2020/01/21/IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%94%B6%E9%9B%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -620,8 +534,8 @@ User user = (User) ac.getBean(&quot;user&quot;);</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/spring/">
-                                    <span class="chip bg-color">spring</span>
+                                <a href="/tags/skill/">
+                                    <span class="chip bg-color">skill</span>
                                 </a>
                             
                         </div>
@@ -787,9 +701,10 @@ User user = (User) ac.getBean(&quot;user&quot;);</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/01/21/IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%94%B6%E9%9B%86/">
                     <div class="card-image">
@@ -808,9 +723,9 @@ ctrl + alt + v          将方法内的参数抽取出来ctrl + shift   上下�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -823,6 +738,7 @@ ctrl + alt + v          将方法内的参数抽取出来ctrl + shift   上下�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -841,41 +757,33 @@ ctrl + alt + v          将方法内的参数抽取出来ctrl + shift   上下�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/01/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                <a href="/2020/01/11/Spring%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="如何搭建个人博客">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Spring学习">
                         
-                        <span class="card-title">如何搭建个人博客</span>
+                        <span class="card-title">Spring学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用Hexo+GitHub搭建免费个人博客1、前言(争对windows用户)1.1、准备工作
-有一个github账号，没有的话去注册一个
-本地安装git下载
-安装node.js长期版、hexo
-
-
-
-(注意)
-git下载好后需要的操作：
-
-
+                            Spring学习
+IoC的操作ApplicationContext ac = new ClassPathXmlApplicationContext(&quot;ApplicationContext.xml&quot;);
+User user
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E7%AB%99/" class="post-category">
-                                    网站
+                            <a href="/categories/web%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    web技术
                                 </a>
                             
                             
@@ -885,8 +793,8 @@ git下载好后需要的操作：
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/skill/">
-                        <span class="chip bg-color">skill</span>
+                    <a href="/tags/spring/">
+                        <span class="chip bg-color">spring</span>
                     </a>
                     
                 </div>
