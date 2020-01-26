@@ -4,17 +4,20 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="编译原理, 个人博客">
-    <meta name="description" content="第四章 自顶向下语法分析方法易错点：
-FIRST集:
-   ​             FIRST(左部) = FIRST(右部终结首符)   ​             或  FIRST(左部)=FIRST(右部非终结首符)
+    <meta name="keywords" content="单词学习, 个人博客">
+    <meta name="description" content="单词学习
+前缀篇
+ab-     离去，相反，不
 
 
+abnormal        a. 反常的
+abuse               n./ v.  滥用
 
 
+anti-     相反，反对
 
 
-">
+antiwar            ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +25,7 @@ FIRST集:
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>编译原理 | 个人博客</title>
+    <title>单词学习 | 个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -317,7 +320,7 @@ FIRST集:
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">编译原理</h1>
+                    <h1 class="description center-align post-title">单词学习</h1>
                 </div>
             </div>
         </div>
@@ -459,7 +462,7 @@ FIRST集:
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-31
+                    2019-01-26
                 </div>
                 
 
@@ -476,33 +479,213 @@ FIRST集:
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="第四章-自顶向下语法分析方法"><a href="#第四章-自顶向下语法分析方法" class="headerlink" title="第四章 自顶向下语法分析方法"></a>第四章 自顶向下语法分析方法</h2><h3 id="易错点："><a href="#易错点：" class="headerlink" title="易错点："></a>易错点：</h3><ol>
-<li><strong>FIRST集:</strong><blockquote>
-<p>   ​             FIRST(左部) = FIRST(右部终结首符)<br>   ​             或  FIRST(左部)=FIRST(右部非终结首符)</p>
-</blockquote>
-<a id="more"></a>
-
-
-</li>
+                <h1 id="单词学习"><a href="#单词学习" class="headerlink" title="单词学习"></a>单词学习</h1><p><img src="../../../../images/%E5%8D%95%E8%AF%8D%E7%BB%84%E6%88%90.png" alt></p>
+<h2 id="前缀篇"><a href="#前缀篇" class="headerlink" title="前缀篇"></a>前缀篇</h2><ol>
+<li>ab-     离去，相反，不</li>
 </ol>
+<blockquote>
+<p>abnormal        a. 反常的</p>
+<p>abuse               n./ v.  滥用</p>
+</blockquote>
 <ol start="2">
-<li><strong>FOLLOW集:</strong><blockquote>
-<p>   S表示某非终结符<br>   ​<br>   ​            if    产生式右部 S的右边符号可为空时：<br>   ​<br>   ​                            FOLLOW(S) =(FIRST(右边符号)-{$\epsilon$}) U FOLLOW(左部)<br>   ​<br>   ​            if   产生式右部S的右边符号不为空时：<br>   ​<br>   ​                            FOLLOW(S) = (FIRST(右边符号)-{$\epsilon$}) U FOLLOW(左部)<br>   ​<br>   ​            if    产生式右部S的右边不存在时：<br>   ​<br>   ​                            FOLLOW(S) = FOLLOW(左部)<br>   ​</p>
-</blockquote>
-</li>
+<li>anti-     相反，反对</li>
 </ol>
+<blockquote>
+<p>antiwar            a. 反战的</p>
+<p>antiaging         a. 防衰老的</p>
+<p>antiforeign      a. 排外的</p>
+<p>antinoise         a. 抗噪音的</p>
+</blockquote>
 <ol start="3">
-<li><strong>SELECT集：</strong><blockquote>
-<p>   ​                    if   右部不为空时：<br>   ​<br>   ​                 SELECT(产生式) = FIRST(右部)<br>   ​           else<br>   ​<br>   ​                SELECT(产生式) = (FIRST(右部) - {$\epsilon$}) U FOLLOW(左部)<br>   ​</p>
-</blockquote>
-</li>
+<li>a+双写首字母-     加强</li>
 </ol>
+<blockquote>
+<p>account            n. 账目，存款</p>
+<p>attract               v. 吸引</p>
+<p>assimilate         v. 同化</p>
+<p>affluent             a. 富裕的</p>
+</blockquote>
 <ol start="4">
-<li><strong>LL(1)文法：</strong><blockquote>
-<p>判断：对每两个相同左部符的产生式求SELECT集的交集，若为空则是LL(1)文法。</p>
-</blockquote>
-</li>
+<li>co- / col- / con- / com-      一起</li>
 </ol>
+<blockquote>
+<p>cooperation      n. 合作</p>
+<p>collaboration     n. 合作</p>
+<p>contribute          v. 贡献</p>
+<p>communicate     v. 通信，交流</p>
+</blockquote>
+<ol start="5">
+<li>counter-          反对，相反</li>
+</ol>
+<blockquote>
+<p>counterattack          n./v. 反击</p>
+<p>countereffect           n. 反效果</p>
+<p>countertrend            n. 反潮流</p>
+</blockquote>
+<ol start="6">
+<li>de- 否定；除去；向下</li>
+</ol>
+<blockquote>
+<p>denationlize             v. 非国有化</p>
+<p>decompose               v. 分解</p>
+<p>demerit                      n. 缺点</p>
+<p>deforest                     v. 砍伐树林</p>
+<p>decolour                     v. 使褪色</p>
+<p>decode                        v. 解码</p>
+<p>depress                        v. 使沮丧，使萧条</p>
+<p>devalue                        v. 贬值</p>
+</blockquote>
+<ol start="7">
+<li>dis-      不；除去；分开</li>
+</ol>
+<blockquote>
+<p>disorder                        n. 无秩序                  mental disorder   精神病</p>
+<p>disappear                     v. 消失</p>
+<p>disforest                       v. 开伐山林</p>
+<p>discolor                         v. 使褪色</p>
+<p>distract                          v. 分心</p>
+<p>distribute                      v. 分配</p>
+</blockquote>
+<ol start="8">
+<li>ex-         外，前任的</li>
+</ol>
+<blockquote>
+<p>export                           v. 出口</p>
+<p>exit                                 n. 出口</p>
+<p>exclude                           v. 排外</p>
+<p>ex-boyfriend                 n. 前男友</p>
+</blockquote>
+<ol start="9">
+<li>fore-     前，先，预先</li>
+</ol>
+<blockquote>
+<p>forehead                       n. 前额</p>
+<p>forefather                     n. 祖先</p>
+<p>foresee                          v. 预知</p>
+</blockquote>
+<ol start="10">
+<li>in-         向里；不；加强</li>
+</ol>
+<blockquote>
+<p>indoor                            a. 室内的</p>
+<p>inbreathe                       v. 吸入</p>
+<p>incorrect                        a. 错误的</p>
+<p>incomplete                    a. 不完全的</p>
+<p>intense                           a. 热情的，强烈的            tend  .tens  =   stretch</p>
+<p>innovative                      a. 创新的</p>
+</blockquote>
+<ol start="11">
+<li>im-         向里；不；加强</li>
+</ol>
+<blockquote>
+<p>import                           n./v. 进口</p>
+<p>immerge                       v. 侵入，侵没</p>
+<p>impossible                    a. 不可能的</p>
+<p>imbalance                     n. 不平衡</p>
+<p>impose                           v. 加强，征税</p>
+<p>impulse                         n. 冲动</p>
+</blockquote>
+<ol start="12">
+<li>mis-          错</li>
+</ol>
+<blockquote>
+<p>misuse                           v. 误用，滥用</p>
+<p>misfortune                    n. 不幸</p>
+<p>misunderstand             v. 误会</p>
+</blockquote>
+<ol start="13">
+<li>out-         超过；外</li>
+</ol>
+<blockquote>
+<p>outnumber                     v. 在数量上超过</p>
+<p>outspend                         v. 花费过度</p>
+<p>outdoor                            a. 户外的</p>
+</blockquote>
+<ol start="14">
+<li>over-       过度</li>
+</ol>
+<blockquote>
+<p>overpraise                       n./v. 过奖</p>
+<p>overstudy                        v. 过度学习</p>
+</blockquote>
+<ol start="15">
+<li>post-        后</li>
+</ol>
+<blockquote>
+<p>postwar                          a. 战后</p>
+<p>postpone                        v. 推后</p>
+<p>postgraduate                 n. 研究生</p>
+</blockquote>
+<ol start="16">
+<li>pre-        前</li>
+</ol>
+<blockquote>
+<p>prehistory                       n. 史前时期</p>
+<p>precondition                   n. 前提条件</p>
+</blockquote>
+<ol start="17">
+<li>pro-       向前</li>
+</ol>
+<blockquote>
+<p>progress                          n. 进步</p>
+<p>prolong                            v. 向前延申</p>
+</blockquote>
+<ol start="18">
+<li>re-         向后；再一次</li>
+</ol>
+<blockquote>
+<p>return                               v. 回来，返回</p>
+<p>recall                                 v. 召回</p>
+<p>regress                             v. 倒退</p>
+<p>rebirth                              n. 再生</p>
+<p>reconsider                       v. 重新考虑</p>
+</blockquote>
+<ol start="19">
+<li>sub-          下；下级</li>
+</ol>
+<blockquote>
+<p>subway                            n. 地铁</p>
+<p>subaverage                      a. 低于平均水平的</p>
+<p>subtitle                             n. 副标题</p>
+<p>subbranch                       n. 分支，分公司</p>
+</blockquote>
+<ol start="20">
+<li>trans-         转移</li>
+</ol>
+<blockquote>
+<p>transform                        v. 改变</p>
+<p>transplant                        v. 移植</p>
+<p>transposition                   n. 互换位置</p>
+</blockquote>
+<ol start="21">
+<li>数字前缀</li>
+</ol>
+<blockquote>
+<p>mono-1</p>
+<p>monotone                 n. 单调</p>
+<p>monodrama              n. 独角戏</p>
+<p>bi-2</p>
+<p>bicycle                         n. 自行车</p>
+<p>bilateral                       a. 双边的</p>
+<p>di- 2</p>
+<p>dioxide                         n. 而氧化物</p>
+<p>divorce                         v./n. 离婚</p>
+<p>tri- 3</p>
+<p>triangle                        n. 三角形</p>
+<p>trike                              n. 三轮车</p>
+<p>hemi-半</p>
+<p>hermisphere                n. 半球</p>
+<p>hemicycle                     n. 半圆形</p>
+<p>semi-半</p>
+<p>semifinal                       n. 半决赛</p>
+<p>semiautomatic            a. 半自动的</p>
+<p>poly- 多</p>
+<p>monopoly                     n. 垄断</p>
+<p>polytechnic                  n. 理工学校</p>
+<p>multi-多</p>
+<p>multi-purpose             a. 多功能的</p>
+<p>multi-media                 n. 多媒体</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -528,7 +711,7 @@ FIRST集:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2019/08/31/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">http://yoursite.com/2019/08/31/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</a>
+                    <a href="http://yoursite.com/2019/01/26/%E5%8D%95%E8%AF%8D%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2019/01/26/%E5%8D%95%E8%AF%8D%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -737,41 +920,40 @@ FIRST集:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/01/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                <a href="/2019/08/31/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="如何搭建个人博客">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="编译原理">
                         
-                        <span class="card-title">如何搭建个人博客</span>
+                        <span class="card-title">编译原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用Hexo+GitHub搭建免费个人博客1、前言(争对windows用户)1.1、准备工作
-有一个github账号，没有的话去注册一个
-本地安装git下载
-安装node.js长期版、hexo
+                            第四章 自顶向下语法分析方法易错点：
+FIRST集:
+   ​             FIRST(左部) = FIRST(右部终结首符)   ​             或  FIRST(左部)=FIRST(右部非终结首符)
 
 
 
-(注意)
-git下载好后需要的操作：
+
+
 
 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-08-31
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E7%AB%99/" class="post-category">
-                                    网站
+                            <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    大学课程
                                 </a>
                             
                             
@@ -781,8 +963,8 @@ git下载好后需要的操作：
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/skill/">
-                        <span class="chip bg-color">skill</span>
+                    <a href="/tags/course/">
+                        <span class="chip bg-color">course</span>
                     </a>
                     
                 </div>
@@ -793,7 +975,7 @@ git下载好后需要的操作：
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
                 <a href="/2019/01/26/%E5%8D%95%E8%AF%8D%E5%AD%A6%E4%B9%A0/">
@@ -839,6 +1021,7 @@ antiwar
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
