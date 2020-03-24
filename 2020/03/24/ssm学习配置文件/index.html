@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CentOS 安装配置 2, 个人博客">
-    <meta name="description" content="CentOS安装配置 2MySQL 数据库的安装MySQL数据库最早就是在Linux环境下发展起来的，而且在国内也是使用最多的一种数据库，那么本次对MySQL的安装与配置进行讲解。只需要登录MySQL官网就可以下载Linux版本：https">
+    <meta name="keywords" content="ssm学习相关配置, 个人博客">
+    <meta name="description" content="spring配置applicationContext.xml
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;beans xmlns=&amp;quot;ht">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CentOS 安装配置 2 | 个人博客</title>
+    <title>ssm学习相关配置 | 个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,7 +310,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CentOS 安装配置 2</h1>
+                    <h1 class="description center-align post-title">ssm学习相关配置</h1>
                 </div>
             </div>
         </div>
@@ -425,8 +427,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/centos/">
-                                <span class="chip bg-color">centos</span>
+                            <a href="/tags/course/">
+                                <span class="chip bg-color">course</span>
                             </a>
                         
                     </div>
@@ -437,8 +439,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/IT/" class="post-category">
-                                IT
+                            <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                大学课程
                             </a>
                         
                     </div>
@@ -450,7 +452,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-01
+                    2020-03-24
                 </div>
                 
 
@@ -467,287 +469,84 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="CentOS安装配置-2"><a href="#CentOS安装配置-2" class="headerlink" title="CentOS安装配置 2"></a>CentOS安装配置 2</h1><h2 id="MySQL-数据库的安装"><a href="#MySQL-数据库的安装" class="headerlink" title="MySQL 数据库的安装"></a>MySQL 数据库的安装</h2><p>MySQL数据库最早就是在Linux环境下发展起来的，而且在国内也是使用最多的一种数据库，那么本次对MySQL的安装与配置进行讲解。只需要登录MySQL官网就可以下载Linux版本：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
-<ol>
-<li>【FTP开发包上传】如果要想进行组件的安装，那么实际上有两种做法：</li>
-</ol>
-<ul>
-<li><p>如果你的系统在云服务主机之中，那么可以直接利用wget命令下载MySQL数据库</p>
-<pre><code class="shell">wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.19-linux-glibc2.12-x86_64.tar.xz</code></pre>
-</li>
-<li><p>使用ftp上传，利用fileZilla等工具，直接将文件拖到目标目录下</p>
-</li>
-</ul>
-<ol start="2">
-<li><p>【组件解压缩】</p>
-<pre><code>对于&quot;.tar.xz&quot;文件需要进行两次解压
-xz文件解压缩：xz -d /var/ftp/mysql-8.0.17-linux-glibc2.12-x86_64.tar.xz
-tar文件解压缩：tar xvf /var/ftp/mysql-8.0.17-linux-glibc2.12-x86_64.tar -C /usr/local/
-目录更名：mv /usr/local/mysql-8.0.17-linux-glibc2.12-x86_64/ /usr/local/mysql</code></pre></li>
-<li><p>【创建用户】如果要想使用MySQL服务则一定要提供有一个mysql的账户同时这个账户一定要加入到mysql组里面，为了保证安全还必须mysql账户不能够进行系统的登录：</p>
-<pre><code>创建用户组
-groupadd mysql
-创建用户
-useradd -r -g mysql -s /bin/false mysql
-授权配置
-chown -R mysql:mysql ./</code></pre></li>
-<li><p>【创建数据目录】如果要使用MySQL则一定要对MySQL数据库里面数据设置有一个专属的数据目录，实际的开发中，将此目录配置到相应的数据盘里面，本次为了模拟方便，会将MySQL直接配置到”/usr/data/mysql”目录</p>
-<pre><code class="shell">创建目录
-mkdir -p /usr/data/mysql/{db,logs}
-目录授权
-chmod -R 777 /usr/data/mysql</code></pre>
-</li>
-<li><p>【卸载mariadb】在默认情况下CentOS系统内部会自动安装MariaDB数据库的安装，所以如果要想安装MySQL建议手工删除掉此组件</p>
-<ul>
-<li>查看系统是否装有MariaDB</li>
-</ul>
-<pre><code class="shell">rpm -qa | grep mariadb</code></pre>
-<ul>
-<li>卸载自动安装好的MariaDB</li>
-</ul>
-<pre><code class="shell">rpm -e --nodeps mariadb-libs-5.5.60-1.el7_5.x86_64</code></pre>
-</li>
-<li><p>【MySQL配置文件】如果要想使用MySQL则需要创建有一个配置文件：</p>
-<pre><code class="shell">打开配置文件
-vi /etc/my.cnf</code></pre>
-<pre><code class="yaml">配置文件内容
+                <h2 id="spring配置"><a href="#spring配置" class="headerlink" title="spring配置"></a>spring配置</h2><p>applicationContext.xml</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+           http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;&lt;/beans&gt;</code></pre>
+<p>组件扫描</p>
+<pre><code class="xml">&lt;context:component-scan base-package=&quot;pojo&quot;&gt;&lt;/context:component-scan&gt;</code></pre>
+<p>数据源</p>
+<pre><code class="xml">&lt;!-- 配置数据源 --&gt;
+    &lt;bean id=&quot;datasource&quot; class=&quot;org.apache.commons.dbcp2.BasicDataSource&quot;&gt;
+        &lt;!-- MySQL 数据库驱动 --&gt;
+        &lt;property name=&quot;driverClassName&quot; value=&quot;com.mysql.jdbc.Driver&quot;&gt;&lt;/property&gt;
+        &lt;!-- 连接数据库URL --&gt;
+        &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf8&quot;&gt;&lt;/property&gt;
+        &lt;!-- 连接数据库的用户名 --&gt;
+        &lt;property name=&quot;username&quot; value=&quot;root&quot;&gt;&lt;/property&gt;
+        &lt;!-- 连接数据库的密码 --&gt;
+        &lt;property name=&quot;password&quot; value=&quot;123456&quot;&gt;&lt;/property&gt;
+        &lt;!-- 最大连接数 --&gt;
+        &lt;property name=&quot;maxTotal&quot; value=&quot;30&quot;&gt;&lt;/property&gt;
+        &lt;!-- 最大空闲连接数 --&gt;
+        &lt;property name=&quot;maxIdle&quot; value=&quot;10&quot;&gt;&lt;/property&gt;
+        &lt;!-- 初始化连接数 --&gt;
+        &lt;property name=&quot;initialSize&quot; value=&quot;5&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;</code></pre>
+<p>事务管理</p>
+<pre><code class="xml">    &lt;!-- 为数据源添加事务管理器 --&gt;
+    &lt;bean id=&quot;txManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;datasource&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;</code></pre>
+<pre><code class="xml">    &lt;!-- 为事务管理器注册驱动器 --&gt;
+    &lt;tx:annotation-driven transaction-manager=&quot;txManager&quot;/&gt;</code></pre>
+<p>mybatis配置</p>
+<pre><code class="xml">&lt;!-- 配置MyBatis工厂，同时指定数据源，并于MyBatis完美配合 --&gt;
+&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;datasource&quot;&gt;&lt;/property&gt;
+    &lt;!-- configLocation的属性值为MyBatis的核心配置文件 --&gt;
+    &lt;property name=&quot;configLocation&quot; value=&quot;classpath:mybatis-config.xml&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+<pre><code class="xml">&lt;!-- 使用Mapper代理开发，使用spring自动扫描MyBatis的接口并装配 --&gt;
+&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+    &lt;property name=&quot;basePackage&quot; value=&quot;dao&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+<h2 id="mybatis配置"><a href="#mybatis配置" class="headerlink" title="mybatis配置"></a>mybatis配置</h2><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE configuration  PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;  &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;!-- 在使用MyBatis嵌套查询方式进行关联查询时，使用MyBatis的延时加载在一定程度可以提高查询效率 --&gt;
+    &lt;settings&gt;
+        &lt;!-- 打开延时加载的开关 --&gt;
+        &lt;setting name=&quot;lazyLoadingEnabled&quot; value=&quot;true&quot;/&gt;
+        &lt;!-- 将积极加载改为按需加载 --&gt;
+        &lt;setting name=&quot;aggressiveLazyLoading&quot; value=&quot;false&quot;/&gt;
+    &lt;/settings&gt;
 
-[mysqld]
-# 设置3306端口
-port = 3306 
-# 设置mysql的安装目录
-basedir=/usr/local/mysql
-# 设置mysql数据库的数据的存放目录
-datadir=/usr/data/mysql/db
-# mysqlsock存储目录
-socket=/usr/data/mysql/db/mysql.sock
-# 允许最大连接数
-max_connections=10000
-# 允许连接失败的次数，这是为了防止有人从该主机试图攻击数据库系统
-max_connect_errors=10
-# 服务端使用的字符集默认为8
-character-set-server=utf8
-# 创建新表时将使用的默认存储引擎
-default-storage-engine=INNODB 
-# 默认使用“mysql_native_password”插件认证
-default-authentication_plugin=mysql_native_password
-[mysql]
-# 设置mysql客户端默认字符集
-default-character-set=utf8 
-# mysqlsock 存储目录
-socket=/usr/data/mysql/db/mysql.sock
-[client]
-# 设置mysql客户端连接服务端时默认使用的端口
-port=3306
-default-character-set=utf8
-[mysqld_safe]
-log-error=/usr/data/mysql/logs/mysql.log
-pid-file=/usr/data/mysql/mysql.pid
-# mysqlsock 存储目录
-socket=/usr/data/mysql/db/mysql.sock</code></pre>
-</li>
-<li><p>【安装MySQL】此时配置完成之后就可以进行MySQL数据库的安装了：(可能需要<code>yum install libaio</code>)</p>
-<pre><code class="shell">/usr/local/mysql/bin/mysqld --initialize --console
-会有一个初始化密码(冒号后的内容)形如 root@localhsot: d/nnri9&gt;7&gt;iM</code></pre>
-<p>当此时的初始化执行完毕之后就会直接在控制台上打印初始化信息，同时会有在相应的数据目录里面保存有相关的文件内容</p>
-</li>
-<li><p>【启动MySQL】MySQL服务初始化之后就可以考虑进行MySQL数据库的服务启动：</p>
-<pre><code class="shell">/usr/local/mysql/bin/mysqld_safe --user=root &gt; /dev/null 2&gt;&amp;1 &amp;</code></pre>
-<table>
-<thead>
-<tr>
-<th>前台启动</th>
-<th>/usr/local/mysql/bin/mysqld_safe –user=root</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>后台启动</td>
-<td>/usr/local/mysql/bin/mysqld_safe –user=root &gt; /dev/null 2&gt;&amp;1 &amp;</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>【MySQL控制台】当MySQL服务启动之后就可以直接进入到MySQL控制台，用户名：root,密码为初始化密码：</p>
-<pre><code class="shell">/usr/local/mysql/bin/mysql -uroot -p
-输入初始化密码，即可登录成功</code></pre>
-</li>
-<li><p>【修改密码】当登录到MySQL数据库之后就可以考虑对当前的root账户密码进行修改，本次修改的密码为”mysqladmin”:</p>
-<pre><code class="mysql">alter user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;mysqladmin&#39;;</code></pre>
-</li>
-<li><p>【远程授权】此时的root账户只能够在本机进行访问，无法通过远程连接的模式进行访问，所以需要对root授权：</p>
-<pre><code class="mysql">进入到mysql的数据库
-use mysql
-设置远程访问
-update user set user.Host=&#39;%&#39; where user.User=&#39;root&#39;;
-配置保存
-flush privileges;</code></pre>
-</li>
-<li><p>【连接测试】直接在本机上使用MySQL客户端进行连接测试</p>
-</li>
-<li><p>【SQL语句】既然可以正常连接到远程的MySQL数据库，所以这个时候可以考虑进行数据库与数据表的创建。</p>
-<pre><code class="MYSQL">CREATE DATABASE test_connection CHARACTER SET UTF8;
-
-USE test_connection;
-
-CREATE TABLE news(
-    nid        BIGINT        AUTO_INCREMENT,
-    title    VARCHAR(200),
-    note    TEXT,
-    CONSTRAINT pk_nid PRIMARY KEY(nid)
-) engine=innodb;
-
-INSERT INTO news(title,note) VALUES(&quot;你好&quot;,&quot;www.fengfeng.com&quot;);
-
-SELECT * FROM news LIMIT 0,3;
-
-SELECT LAST_INSERT_ID();</code></pre>
-</li>
-<li><p>【数据库加密】现在所有MySQL中的数据内容全部都保存在了”/usr/data/mysql”目录里面，所以为了保证数据的安全，如果有需要可以直接进行目录的加密处理：</p>
-<pre><code class="shell">/usr/local/mysql/bin/mysql_ssl_rsa_setup --datadir=/usr/data/mysql/db/</code></pre>
-</li>
-</ol>
-<h2 id="JDK安装与配置"><a href="#JDK安装与配置" class="headerlink" title="JDK安装与配置"></a>JDK安装与配置</h2><p>​    有两种方式安装，一种是直接使用yum命令直接进行安装(openjdk)，另一种直接通过oracle官方网站下载相应的JDK版本</p>
-<ol>
-<li><p>【FTP上传】下载好对应JDK版本后，通过FTP进行文件的上传</p>
-</li>
-<li><p>【解压缩】JDK给定的文件可以直接进行解压缩的控制，将其解压缩到”usr/local”目录中：</p>
-<pre><code class="shell">tar xzvf /var/ftp/jdk-8u161-linux-x64.tar.gz -C /usr/local/</code></pre>
-</li>
-<li><p>【目录更名】为了方便后续的配置处理，本次将解压缩之后的JDK进行重命名：</p>
-<pre><code class="shell">mv /usr/local/jdk-8u161/ /usr/local/jdk</code></pre>
-</li>
-<li><p>【环境配置】此时的JDK属于一个独立的组件，所以如果要想使用，还需要进行系统环境的配置：</p>
-<pre><code class="shell">打开配置文件
-vi /etc/profile
-在文件最后添加
-export JAVA_HOME=/usr/local/jdk
-export PATH=$PATH:$JAVA_HOME/bin:
-使文件配置生效
-source /etc/profile</code></pre>
-</li>
-<li><p>【验证】直接输入”java -version”命令即可</p>
-<p>成功后，此时JDK的配置就完成了，而后基于JDK开发的组件也就可以进行配置了</p>
-</li>
-</ol>
-<h2 id="Tomcat安装与配置"><a href="#Tomcat安装与配置" class="headerlink" title="Tomcat安装与配置"></a>Tomcat安装与配置</h2><p>Tomcat是在Java行业之中鼎鼎大名的WEB服务器，其本身也是基于JDK开发的，所以一定要保证系统里面已经配置了JDK环境后才可以进行Tomcat服务的安装与使用，如果要想使用Tomcat则可以直接登录<a href="https://tomcat.apache.org/" target="_blank" rel="noopener">https://tomcat.apache.org/</a>  站点进行Tomcat组件的下载</p>
-<ol>
-<li><p>【FTP上传】可以直接通过FTP进行组件的上传，或者直接使用wget命令下载：</p>
-<pre><code class="shell">进入下载目录
-cd var/ftp
-下载软件包
-wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz</code></pre>
-</li>
-<li><p>【解压缩】下载得到的Tomcat进行一个解压缩：</p>
-<pre><code class="shell">tar xzvf /var/ftp/apache-tomcat-9.0.22.tar.gz -C /usr/local/</code></pre>
-</li>
-<li><p>【目录更名】为了方便配置，可以将目录做一个简化更名处理：</p>
-<pre><code class="shell">mv /usr/local/apache-tomcat-9.0.22 /usr/local/tomcat</code></pre>
-</li>
-<li><p>【修改端口】默认的Tomcat组件的端口是8080，现在将其修改为80：</p>
-<pre><code>vi /usr/local/tomcat/conf/server.xml</code></pre><pre><code class="xml">修改位置内容
-&lt;Connector executor=&quot;tomcatThreadPool&quot; port=&quot;80&quot; protocol=&quot;HTTP/1.1&quot; connectionTimeout=&quot;20000&quot; redirectPort=&quot;8443&quot; /&gt;</code></pre>
-</li>
-<li><p>【内存调整】Tomcat本身基于JDK的操作，所以需要设置合理的内存：</p>
-<pre><code class="shell">vi /usr/local/tomcat/bin/catalina.sh</code></pre>
-<pre><code>添加内容
-JAVA_OPTS=&#39;-Xms1g -Xmx1g&#39;</code></pre></li>
-<li><p>【Tomcat命令】现在Tomcat配置完成之后就可以通过给定的shell脚本进行Tomcat的启动与关闭：</p>
-<table>
-<thead>
-<tr>
-<th>启动Tomcat</th>
-<th>/usr/local/tomcat/bin/catalina.sh  start</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>关闭Tomcat</td>
-<td>/usr/local/tomcat/bin/catalina.sh  stop</td>
-</tr>
-</tbody></table>
-<p>当服务启动完成之后可以直接使用<code>netstat -nptl</code>命令查看80端口</p>
-</li>
-<li><p>【Java进程】Tomcat本身是一个Java进程，当JDK安装成功之后可以直接使用”jps”命令查看所有的Java相关进程</p>
-</li>
-<li><p>【浏览器访问】既然Tomcat已经可以成功的启动，那么就可以在外部通过浏览器进行web服务的访问：</p>
-<p>浏览器地址栏：<a href="http://192.168.255.130/" target="_blank" rel="noopener">http://192.168.255.130/</a></p>
-</li>
-</ol>
-<h2 id="SVN版本控制"><a href="#SVN版本控制" class="headerlink" title="SVN版本控制"></a>SVN版本控制</h2><p>在实际项目开发过程之中，版本控制工具肯定是不可或缺的重要技术支持环节</p>
-<ol>
-<li>【获取组件】SVN服务端组件默认情况下不会在系统之中进行安装，所以需要通过yum命令远程安装：</li>
-</ol>
-<pre><code class="shell">yum -y install subversion</code></pre>
-<ol start="2">
-<li>【工作目录】如果要想使用SVN进行版本控制，则一定要创建有一个数据文件的存储目录：</li>
-</ol>
-<pre><code class="shell">mkdir -p usr/data/svn/fengfeng</code></pre>
-<p>以后每一个项目都需要在”svn”目录下面创建不同的子目录分开进行保存</p>
-<ol start="3">
-<li>【目录初始化】如果要想将创建的目录设置为SVN工作目录则还需要进行初始化的操作：</li>
-</ol>
-<pre><code class="shell">svnadmin create /usr/data/svn/fengfeng/</code></pre>
-<p>一旦初始化完成，该目录下会包含有许多的配置文件信息，而这些配置文件肯定需要由开发者自己进行修改。</p>
-<ol start="4">
-<li>【修改SVN 服务配置】所有的配置项都在”svnserve.conf”文件里面定义：</li>
-</ol>
-<pre><code class="shell">打开文件
-vi /usr/data/svn/fengfeng/conf/svnserve.conf
-并配置以下信息</code></pre>
-<table>
-<thead>
-<tr>
-<th align="left">anon-access = read</th>
-<th>允许匿名用户读取文件</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">auth-access = write</td>
-<td>授权访问才可以进行内容写入</td>
-</tr>
-<tr>
-<td align="left">password-db = passwd</td>
-<td>认证信息配置存储文件</td>
-</tr>
-<tr>
-<td align="left">authz-db = authz</td>
-<td>授权配置文件</td>
-</tr>
-</tbody></table>
-<ol start="5">
-<li>【认证配置】随后需要进行认证信息的定义：</li>
-</ol>
-<pre><code class="shell">打开文件
-vi /usr/data/svn/fengfeng/conf/passwd
-添加用户及密码
-fengfeng = happy</code></pre>
-<ol start="6">
-<li>【授权配置】为fengfeng用户授权：</li>
-</ol>
-<pre><code class="shell">打开文件
-vi /usr/data/svn/fengfeng/conf/authz</code></pre>
-<pre><code>配置信息（添加）
-[aliases]
-# joe = /C=XZ/ST=Dessert/L=Snake City/0=Snake Oil, Ltd./OU=Reserch Institute/CN=Joe Average
-[groups]
-# harry_and_sally = harry,sally
-# harry_sally_and_joe = harry,sally,&amp;joe
-[/]
-fengfeng=rw
-# [/foo/bar]
-# harry = rw
-# &amp;joe = r
-# * = 
-fengfeng=rw
-* =
-# [repository:/bar/fuz]
-# @harry_and_sally = rw
-# * = r
-* = r</code></pre><ol start="7">
-<li>【服务启动】当一切部署完成之后就可以直接利用svn命令启动服务：</li>
-</ol>
-<pre><code class="shell">svnserve -d -r /usr/data/svn/fengfeng/</code></pre>
-<ol start="8">
-<li>【测试】服务启动完成之后就可以直接使用任意的SVN客户端进行连接测试</li>
-</ol>
+    &lt;mappers&gt;&lt;!-- 映射器，告诉MyBatis到哪里去找映射文件 --&gt;
+        &lt;mapper resource=&quot;mapper/StudentMapper.xml&quot; /&gt;    
+    &lt;/mappers&gt;
+&lt;/configuration&gt;</code></pre>
+<p>日志文件log4j.properties</p>
+<pre><code class="properties"># Global logging configuration 
+log4j.rootLogger=ERROR, stdout 
+# MyBatis logging configuration... 
+log4j.logger.dao=DEBUG 
+# Console output... 
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender 
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout 
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n</code></pre>
 
             </div>
             <hr/>
@@ -773,7 +572,7 @@ fengfeng=rw
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/03/01/centos%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE2/">http://yoursite.com/2020/03/01/centos%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE2/</a>
+                    <a href="http://yoursite.com/2020/03/24/ssm%E5%AD%A6%E4%B9%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">http://yoursite.com/2020/03/24/ssm%E5%AD%A6%E4%B9%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -811,8 +610,8 @@ fengfeng=rw
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/centos/">
-                                    <span class="chip bg-color">centos</span>
+                                <a href="/tags/course/">
+                                    <span class="chip bg-color">course</span>
                                 </a>
                             
                         </div>
@@ -978,9 +777,10 @@ fengfeng=rw
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/03/24/ssm%E5%AD%A6%E4%B9%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
                     <div class="card-image">
@@ -1000,9 +800,9 @@ fengfeng=rw
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1015,6 +815,7 @@ fengfeng=rw
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1033,20 +834,19 @@ fengfeng=rw
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/01/centos%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE1/">
+                <a href="/2020/03/01/centos%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="CentOS 安装配置 1">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="CentOS 安装配置 2">
                         
-                        <span class="card-title">CentOS 安装配置 1</span>
+                        <span class="card-title">CentOS 安装配置 2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Centos安装配置 1简单修改
-【创建虚拟机的配置】如果要想在虚拟机进行CentOS系统的安装，则一定要创建由一个新的虚拟机环境，同时在安装的过程之中尽可能提供较大的内存以及较多的CPU，可以让安装过程快速一些（本次选择的最小安装版本，是
+                            CentOS安装配置 2MySQL 数据库的安装MySQL数据库最早就是在Linux环境下发展起来的，而且在国内也是使用最多的一种数据库，那么本次对MySQL的安装与配置进行讲解。只需要登录MySQL官网就可以下载Linux版本：https
                         
                     </div>
                     <div class="publish-info">
