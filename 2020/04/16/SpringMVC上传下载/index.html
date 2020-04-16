@@ -4,10 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ssm学习相关配置, 个人博客">
-    <meta name="description" content="spring配置applicationContext.xml
-&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
-&amp;lt;beans xmlns=&amp;quot;ht">
+    <meta name="keywords" content="Spring学习, 个人博客">
+    <meta name="description" content="依赖包    &amp;lt;dependencies&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;commons-fileupload&amp;lt;/groupId&amp;gt;
+   ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ssm学习相关配置 | 个人博客</title>
+    <title>Spring学习 | 个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -305,12 +306,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ssm学习相关配置</h1>
+                    <h1 class="description center-align post-title">Spring学习</h1>
                 </div>
             </div>
         </div>
@@ -427,8 +428,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/course/">
-                                <span class="chip bg-color">course</span>
+                            <a href="/tags/springmvc/">
+                                <span class="chip bg-color">springmvc</span>
                             </a>
                         
                     </div>
@@ -439,8 +440,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="post-category">
-                                大学课程
+                            <a href="/categories/web%E6%8A%80%E6%9C%AF/" class="post-category">
+                                web技术
                             </a>
                         
                     </div>
@@ -452,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-24
+                    2020-04-16
                 </div>
                 
 
@@ -469,84 +470,112 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="spring配置"><a href="#spring配置" class="headerlink" title="spring配置"></a>spring配置</h2><p>applicationContext.xml</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
-    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
-    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
-    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop.xsd
-        http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx.xsd
-           http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;&lt;/beans&gt;</code></pre>
-<p>组件扫描</p>
-<pre><code class="xml">&lt;context:component-scan base-package=&quot;pojo&quot;&gt;&lt;/context:component-scan&gt;</code></pre>
-<p>数据源</p>
-<pre><code class="xml">&lt;!-- 配置数据源 --&gt;
-    &lt;bean id=&quot;datasource&quot; class=&quot;org.apache.commons.dbcp2.BasicDataSource&quot;&gt;
-        &lt;!-- MySQL 数据库驱动 --&gt;
-        &lt;property name=&quot;driverClassName&quot; value=&quot;com.mysql.jdbc.Driver&quot;&gt;&lt;/property&gt;
-        &lt;!-- 连接数据库URL --&gt;
-        &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf8&quot;&gt;&lt;/property&gt;
-        &lt;!-- 连接数据库的用户名 --&gt;
-        &lt;property name=&quot;username&quot; value=&quot;root&quot;&gt;&lt;/property&gt;
-        &lt;!-- 连接数据库的密码 --&gt;
-        &lt;property name=&quot;password&quot; value=&quot;123456&quot;&gt;&lt;/property&gt;
-        &lt;!-- 最大连接数 --&gt;
-        &lt;property name=&quot;maxTotal&quot; value=&quot;30&quot;&gt;&lt;/property&gt;
-        &lt;!-- 最大空闲连接数 --&gt;
-        &lt;property name=&quot;maxIdle&quot; value=&quot;10&quot;&gt;&lt;/property&gt;
-        &lt;!-- 初始化连接数 --&gt;
-        &lt;property name=&quot;initialSize&quot; value=&quot;5&quot;&gt;&lt;/property&gt;
+                <h1 id="依赖包"><a href="#依赖包" class="headerlink" title="依赖包"></a>依赖包</h1><pre><code class="xml">    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;
+            &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;
+            &lt;version&gt;1.3.3&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;4.0.1&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;</code></pre>
+<h1 id="添加配置Springmvc-xml"><a href="#添加配置Springmvc-xml" class="headerlink" title="添加配置Springmvc.xml"></a>添加配置Springmvc.xml</h1><pre><code class="xml">    &lt;!--文件上传配置--&gt;
+    &lt;bean class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;
+          id=&quot;multipartResolver&quot;&gt;
+        &lt;!--请求的编码格式，必须和jsp的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1--&gt;
+        &lt;property name=&quot;defaultEncoding&quot; value=&quot;utf-8&quot;/&gt;
+        &lt;!--上传文件大小限制，单位为字节(10485760=10M)--&gt;
+        &lt;property name=&quot;maxUploadSize&quot; value=&quot;10485760&quot;/&gt;
+        &lt;property name=&quot;maxInMemorySize&quot; value=&quot;40960&quot;/&gt;
     &lt;/bean&gt;</code></pre>
-<p>事务管理</p>
-<pre><code class="xml">    &lt;!-- 为数据源添加事务管理器 --&gt;
-    &lt;bean id=&quot;txManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
-        &lt;property name=&quot;dataSource&quot; ref=&quot;datasource&quot;&gt;&lt;/property&gt;
-    &lt;/bean&gt;</code></pre>
-<pre><code class="xml">    &lt;!-- 为事务管理器注册驱动器 --&gt;
-    &lt;tx:annotation-driven transaction-manager=&quot;txManager&quot;/&gt;</code></pre>
-<p>mybatis配置</p>
-<pre><code class="xml">&lt;!-- 配置MyBatis工厂，同时指定数据源，并于MyBatis完美配合 --&gt;
-&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
-    &lt;property name=&quot;dataSource&quot; ref=&quot;datasource&quot;&gt;&lt;/property&gt;
-    &lt;!-- configLocation的属性值为MyBatis的核心配置文件 --&gt;
-    &lt;property name=&quot;configLocation&quot; value=&quot;classpath:mybatis-config.xml&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;</code></pre>
-<pre><code class="xml">&lt;!-- 使用Mapper代理开发，使用spring自动扫描MyBatis的接口并装配 --&gt;
-&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
-    &lt;property name=&quot;basePackage&quot; value=&quot;dao&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;</code></pre>
-<h2 id="mybatis配置"><a href="#mybatis配置" class="headerlink" title="mybatis配置"></a>mybatis配置</h2><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE configuration  PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;  &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
-&lt;configuration&gt;
-    &lt;!-- 在使用MyBatis嵌套查询方式进行关联查询时，使用MyBatis的延时加载在一定程度可以提高查询效率 --&gt;
-    &lt;settings&gt;
-        &lt;!-- 打开延时加载的开关 --&gt;
-        &lt;setting name=&quot;lazyLoadingEnabled&quot; value=&quot;true&quot;/&gt;
-        &lt;!-- 将积极加载改为按需加载 --&gt;
-        &lt;setting name=&quot;aggressiveLazyLoading&quot; value=&quot;false&quot;/&gt;
-    &lt;/settings&gt;
+<h1 id="文件上传代码"><a href="#文件上传代码" class="headerlink" title="文件上传代码"></a>文件上传代码</h1><pre><code class="java">    @RequestMapping(&quot;/upload&quot;)
+    public String fileUpload(@RequestParam(&quot;file&quot;)CommonsMultipartFile file, HttpServletRequest request) throws IOException {
 
-    &lt;mappers&gt;&lt;!-- 映射器，告诉MyBatis到哪里去找映射文件 --&gt;
-        &lt;mapper resource=&quot;mapper/StudentMapper.xml&quot; /&gt;    
-    &lt;/mappers&gt;
-&lt;/configuration&gt;</code></pre>
-<p>日志文件log4j.properties</p>
-<pre><code class="properties"># Global logging configuration 
-log4j.rootLogger=ERROR, stdout 
-# MyBatis logging configuration... 
-log4j.logger.dao=DEBUG 
-# Console output... 
-log4j.appender.stdout=org.apache.log4j.ConsoleAppender 
-log4j.appender.stdout.layout=org.apache.log4j.PatternLayout 
-log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n</code></pre>
+        // 获取文件名 ：
+        String uploadFileName = file.getOriginalFilename();
+
+        // 如果文件名为空，直接回到首页
+        if (&quot;&quot;.equals(uploadFileName)) {
+            return &quot;redirect:/index.jsp&quot;;
+        }
+        System.out.println(&quot;上传的文件名为：&quot; + uploadFileName);
+
+        // 上传路径保存设置
+        String path = request.getServletContext().getRealPath(&quot;/upload&quot;);
+        // 如果路径不存在，创建一个
+        File realPath = new File(path);
+        if (!realPath.exists()) {
+            realPath.mkdirs();
+        }
+        System.out.println(&quot;上传的文件路径&quot;+realPath);
+
+        InputStream is = file.getInputStream(); // 文件输入流
+        OutputStream os = new FileOutputStream(new File(realPath, uploadFileName)); // 文件输出流
+
+        //读去写出
+        int len = 0;
+        byte[] buffer = new byte[1024];
+        while ((len=is.read(buffer))!=-1) {
+            os.write(buffer,0,len);
+            os.flush();
+        }
+        os.close();
+        is.close();
+        return &quot;redirect:/index.jsp&quot;;
+    }
+
+
+    @RequestMapping(&quot;/upload2&quot;)
+    public String fileUpload2(@RequestParam(&quot;file&quot;)CommonsMultipartFile file, HttpServletRequest request)throws IOException{
+        // 上传路径保存设置
+        String path = request.getServletContext().getRealPath(&quot;/upload&quot;);
+        File realPath = new File(path);
+        if (!realPath.exists()) {
+            realPath.mkdirs();
+        }
+
+        // 上传文件地址
+        System.out.println(&quot;上传的文件路径&quot;+realPath);
+
+        // 通过CommonsMultipartFile的方法直接写文件（）
+        file.transferTo(new File(realPath+&quot;/&quot;+ file.getOriginalFilename()));
+        return &quot;redirect:/index.jsp&quot;;
+
+    }
+
+</code></pre>
+<h1 id="文件下载代码"><a href="#文件下载代码" class="headerlink" title="文件下载代码"></a>文件下载代码</h1><pre><code class="java">@RequestMapping(&quot;/download&quot;)
+    public String downloads(HttpServletResponse response,HttpServletRequest request) throws Exception{
+
+        // 要下载的图片地址
+        String path = request.getServletContext().getRealPath(&quot;/upload&quot;);
+        String fileName = &quot;1.png&quot;;
+
+        // 1. 设置response响应头
+        response.reset();// 设置页面不缓存，清空buffer
+        response.setCharacterEncoding(&quot;UTF-8&quot;);// 字符编码
+        response.setContentType(&quot;multipart/form-data&quot;); // 二进制传输数据
+        // 设置响应头
+        response.setHeader(&quot;Content-Disposition&quot;,&quot;attachment;fileName=&quot;+ URLEncoder.encode(fileName,&quot;UTF-8&quot;));
+        File file = new File(path, fileName);
+        // 2. 读取文件-输入流
+        FileInputStream input = new FileInputStream(file);
+        // 3. 写入文件-输出流
+        ServletOutputStream output = response.getOutputStream();
+        byte[] buff = new byte[1024];
+        int index=0;
+        // 4. 执行写出操作
+        while ((index=input.read(buff)) != -1) {
+            output.write(buff,0,index);
+            output.flush();
+        }
+        output.close();
+        input.close();
+        return null;
+    }</code></pre>
 
             </div>
             <hr/>
@@ -572,7 +601,7 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/03/24/ssm%E5%AD%A6%E4%B9%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">http://yoursite.com/2020/03/24/ssm%E5%AD%A6%E4%B9%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</a>
+                    <a href="http://yoursite.com/2020/04/16/SpringMVC%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/">http://yoursite.com/2020/04/16/SpringMVC%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -610,8 +639,8 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/course/">
-                                    <span class="chip bg-color">course</span>
+                                <a href="/tags/springmvc/">
+                                    <span class="chip bg-color">springmvc</span>
                                 </a>
                             
                         </div>
@@ -777,9 +806,10 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/04/16/SpringMVC%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/">
                     <div class="card-image">
@@ -800,9 +830,9 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -815,6 +845,7 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -833,31 +864,33 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/01/centos%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE2/">
+                <a href="/2020/03/24/ssm%E5%AD%A6%E4%B9%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="CentOS 安装配置 2">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="ssm学习相关配置">
                         
-                        <span class="card-title">CentOS 安装配置 2</span>
+                        <span class="card-title">ssm学习相关配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CentOS安装配置 2MySQL 数据库的安装MySQL数据库最早就是在Linux环境下发展起来的，而且在国内也是使用最多的一种数据库，那么本次对MySQL的安装与配置进行讲解。只需要登录MySQL官网就可以下载Linux版本：https
+                            spring配置applicationContext.xml
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;ht
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/IT/" class="post-category">
-                                    IT
+                            <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    大学课程
                                 </a>
                             
                             
@@ -867,8 +900,8 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/centos/">
-                        <span class="chip bg-color">centos</span>
+                    <a href="/tags/course/">
+                        <span class="chip bg-color">course</span>
                     </a>
                     
                 </div>
