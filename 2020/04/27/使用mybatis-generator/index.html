@@ -4,10 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MyBatis 分页插件 PageHelper, 个人博客">
-    <meta name="description" content="MyBatis 分页插件 PageHelper1.  导入依赖&amp;lt;!--引入PageHelper插件--&amp;gt;
-&amp;lt;dependency&amp;gt;
-    &amp;lt;groupId&amp;gt;com.github.pagehelper&amp;l">
+    <meta name="keywords" content="使用mybatis-generator（利用maven）, 个人博客">
+    <meta name="description" content="使用mybatis-generator（利用maven）1. 导入插件工具&amp;lt;build&amp;gt;
+    &amp;lt;finalName&amp;gt;zsxt&amp;lt;/finalName&amp;gt;
+    &amp;lt;plugins&amp;gt;
+     ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>MyBatis 分页插件 PageHelper | 个人博客</title>
+    <title>使用mybatis-generator（利用maven） | 个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -305,12 +306,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MyBatis 分页插件 PageHelper</h1>
+                    <h1 class="description center-align post-title">使用mybatis-generator（利用maven）</h1>
                 </div>
             </div>
         </div>
@@ -469,33 +470,74 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="MyBatis-分页插件-PageHelper"><a href="#MyBatis-分页插件-PageHelper" class="headerlink" title="MyBatis 分页插件 PageHelper"></a>MyBatis 分页插件 PageHelper</h1><h2 id="1-导入依赖"><a href="#1-导入依赖" class="headerlink" title="1.  导入依赖"></a>1.  导入依赖</h2><pre><code class="xml">&lt;!--引入PageHelper插件--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
-    &lt;artifactId&gt;pagehelper&lt;/artifactId&gt;
-    &lt;version&gt;5.1.4&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
-<h2 id="2-在mybatis文件中配置PageHelper"><a href="#2-在mybatis文件中配置PageHelper" class="headerlink" title="2. 在mybatis文件中配置PageHelper"></a>2. 在mybatis文件中配置PageHelper</h2><pre><code class="xml">&lt;!--分页插件--&gt;
-&lt;plugins&gt;
-    &lt;plugin interceptor=&quot;com.github.pagehelper.PageInterceptor&quot;&gt;
-        &lt;!--分页参数合理化--&gt;
-        &lt;property name=&quot;reasonable&quot; value=&quot;true&quot;/&gt;
-    &lt;/plugin&gt;
-&lt;/plugins&gt;</code></pre>
-<h2 id="3-使用PageHelper"><a href="#3-使用PageHelper" class="headerlink" title="3. 使用PageHelper"></a>3. 使用PageHelper</h2><pre><code class="java">@RequestMapping(&quot;/empList&quot;)
-@ResponseBody
-public MsgJson getEmpsWithJson(@RequestParam(value = &quot;pn&quot;,defaultValue = &quot;1&quot;)Integer pn) {
-    // 引入PageHelper
-    // 在查询之前只需要调用，传入页码，以及每页的大小
-    PageHelper.startPage(pn, 5);
-    // startPage后面紧跟的这个查询就是一个分页查询
-    List&lt;Employee&gt; employeeList = employeeService.getAll();
-    // 使用pageInfo包装查询以后的结果，只需要将pageInfo交给页面就行了
-    // 封装了详细的分页信息，包裹有我们查询出来的信息,传入连续显示的页数
-    PageInfo&lt;Employee&gt; page = new PageInfo&lt;&gt;(employeeList,5);
-    return MsgJson.success().add(&quot;pageInfo&quot;,page);
-}</code></pre>
-<h2 id="4-常用对象描述"><a href="#4-常用对象描述" class="headerlink" title="4. 常用对象描述"></a>4. 常用对象描述</h2><p><img src="../../../../images/Snipaste_2020-04-27_21-43-29.png" alt="Snipaste_2020-04-27_21-43-29"></p>
+                <h1 id="使用mybatis-generator（利用maven）"><a href="#使用mybatis-generator（利用maven）" class="headerlink" title="使用mybatis-generator（利用maven）"></a>使用mybatis-generator（利用maven）</h1><h2 id="1-导入插件工具"><a href="#1-导入插件工具" class="headerlink" title="1. 导入插件工具"></a>1. 导入插件工具</h2><pre><code class="xml">&lt;build&gt;
+    &lt;finalName&gt;zsxt&lt;/finalName&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;1.3.2&lt;/version&gt;
+            &lt;configuration&gt;
+                &lt;verbose&gt;true&lt;/verbose&gt;
+                &lt;overwrite&gt;true&lt;/overwrite&gt;
+            &lt;/configuration&gt;
+            &lt;dependencies&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;mysql&lt;/groupId&gt;
+                    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+                    &lt;version&gt;5.1.47&lt;/version&gt;
+                &lt;/dependency&gt;
+            &lt;/dependencies&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</code></pre>
+<h2 id="2-建立配置文件"><a href="#2-建立配置文件" class="headerlink" title="2.建立配置文件"></a>2.建立配置文件</h2><blockquote>
+<p>在resources目录下，新建generatorConfig.xml文件，提前创建好targetPackage的文件</p>
+</blockquote>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE generatorConfiguration
+        PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;
+
+&lt;generatorConfiguration&gt;
+    &lt;context id=&quot;default&quot; targetRuntime=&quot;MyBatis3&quot;&gt;
+
+        &lt;!-- optional，旨在创建class时，对注释进行控制 --&gt;
+        &lt;commentGenerator&gt;
+            &lt;property name=&quot;suppressDate&quot; value=&quot;true&quot;/&gt;
+            &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot;/&gt;
+        &lt;/commentGenerator&gt;
+
+        &lt;!--配置数据库连接信息--&gt;
+        &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot;
+                        connectionURL=&quot;jdbc:mysql://localhost:3306/ssm_crud&quot;
+                        userId=&quot;root&quot;
+                        password=&quot;123456&quot;/&gt;
+
+        &lt;!--指定javabean生成的位置--&gt;
+        &lt;javaModelGenerator targetPackage=&quot;com.example.pojo&quot; targetProject=&quot;src/main/java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+        &lt;/javaModelGenerator&gt;
+
+        &lt;!--指定sql映射文件生成的位置--&gt;
+        &lt;sqlMapGenerator targetPackage=&quot;mapper&quot; targetProject=&quot;src/main/resources&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+        &lt;/sqlMapGenerator&gt;
+
+        &lt;!--指定dao接口生成的位置,mapper接口--&gt;
+        &lt;javaClientGenerator type=&quot;XMLMAPPER&quot; targetPackage=&quot;com.example.dao&quot; targetProject=&quot;src/main/java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+        &lt;/javaClientGenerator&gt;
+
+        &lt;!--指定每个表的生成策略--&gt;
+        &lt;table tableName=&quot;tbl_emp&quot; domainObjectName=&quot;Employee&quot;/&gt;
+        &lt;table tableName=&quot;tbl_dept&quot; domainObjectName=&quot;Department&quot;/&gt;
+
+    &lt;/context&gt;
+&lt;/generatorConfiguration&gt;
+</code></pre>
+<h2 id="3-配置maven"><a href="#3-配置maven" class="headerlink" title="3. 配置maven"></a>3. 配置maven</h2><p><img src="../../../../images/Snipaste_2020-04-27_22-18-34.png" alt="Snipaste_2020-04-27_22-18-34"></p>
+<h2 id="4-点击生成"><a href="#4-点击生成" class="headerlink" title="4. 点击生成"></a>4. 点击生成</h2><p><img src="../../../../images/Snipaste_2020-04-27_22-19-30.png" alt="Snipaste_2020-04-27_22-19-30"></p>
 
             </div>
             <hr/>
@@ -521,7 +563,7 @@ public MsgJson getEmpsWithJson(@RequestParam(value = &quot;pn&quot;,defaultValue
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/04/27/%E4%BD%BF%E7%94%A8PageHelper/">http://yoursite.com/2020/04/27/%E4%BD%BF%E7%94%A8PageHelper/</a>
+                    <a href="http://yoursite.com/2020/04/27/%E4%BD%BF%E7%94%A8mybatis-generator/">http://yoursite.com/2020/04/27/%E4%BD%BF%E7%94%A8mybatis-generator/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -726,9 +768,10 @@ public MsgJson getEmpsWithJson(@RequestParam(value = &quot;pn&quot;,defaultValue
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/04/27/%E4%BD%BF%E7%94%A8mybatis-generator/">
                     <div class="card-image">
@@ -749,9 +792,9 @@ public MsgJson getEmpsWithJson(@RequestParam(value = &quot;pn&quot;,defaultValue
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -764,6 +807,7 @@ public MsgJson getEmpsWithJson(@RequestParam(value = &quot;pn&quot;,defaultValue
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -782,34 +826,33 @@ public MsgJson getEmpsWithJson(@RequestParam(value = &quot;pn&quot;,defaultValue
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/16/SpringMVC%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/">
+                <a href="/2020/04/27/%E4%BD%BF%E7%94%A8PageHelper/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Spring学习">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="MyBatis 分页插件 PageHelper">
                         
-                        <span class="card-title">Spring学习</span>
+                        <span class="card-title">MyBatis 分页插件 PageHelper</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            依赖包    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;
-   
+                            MyBatis 分页插件 PageHelper1.  导入依赖&lt;!--引入PageHelper插件--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.github.pagehelper&l
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/web%E6%8A%80%E6%9C%AF/" class="post-category">
-                                    web技术
+                            <a href="/categories/ssm/" class="post-category">
+                                    ssm
                                 </a>
                             
                             
@@ -819,8 +862,8 @@ public MsgJson getEmpsWithJson(@RequestParam(value = &quot;pn&quot;,defaultValue
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/springmvc/">
-                        <span class="chip bg-color">springmvc</span>
+                    <a href="/tags/skill/">
+                        <span class="chip bg-color">skill</span>
                     </a>
                     
                 </div>
