@@ -1034,7 +1034,7 @@ insert into student(id,name,password) values(#{id},#{name},#{password})
     and od.product_id = p.id
 &lt;/select&gt;</code></pre>
 <h3 id="动态SQL"><a href="#动态SQL" class="headerlink" title="动态SQL"></a>动态SQL</h3><blockquote>
-<p><if>元素</if></p>
+<p><code>&lt;if&gt;</code>元素</p>
 </blockquote>
 <pre><code class="xml">&lt;select id=&quot;selectUserByIf&quot; resultType=&quot;com.pojo.MyUser&quot; parameterType=&quot;com.pojo.MyUser&quot;&gt;
     select * from user where 1=1
@@ -1046,7 +1046,7 @@ insert into student(id,name,password) values(#{id},#{name},#{password})
     &lt;/if&gt;
 &lt;/select&gt;</code></pre>
 <blockquote>
-<p><choose>、<when>、<otherwise>元素</otherwise></when></choose></p>
+<p><code>&lt;choose&gt;</code>、<code>&lt;when&gt;</code>、<code>&lt;otherwise&gt;</code>元素</p>
 </blockquote>
 <pre><code class="xml">&lt;select id=&quot;selectUserByChoose&quot; resultType=&quot;com.pojo.MyUser&quot; parameterType=&quot;com.pojo.MyUser&quot;&gt;
     select * from user where 1=1 
@@ -1063,7 +1063,7 @@ insert into student(id,name,password) values(#{id},#{name},#{password})
     &lt;/choose&gt;
 &lt;/select&gt;</code></pre>
 <blockquote>
-<p><trim>元素</trim></p>
+<p><code>&lt;trim&gt;</code>元素</p>
 </blockquote>
 <p>可以在内容前加前缀prefix或后缀suffix,可以把包含了的首部忽略prefixOverrides或尾部内容覆盖suffixOverrides</p>
 <pre><code class="xml">&lt;select id=&quot;selectUserByTrim&quot; resultType=&quot;com.pojo.MyUser&quot; parameterType=&quot;com.pojo.MyUser&quot;&gt;
@@ -1078,11 +1078,11 @@ insert into student(id,name,password) values(#{id},#{name},#{password})
     &lt;/trim&gt;
 &lt;/select&gt;</code></pre>
 <blockquote>
-<p><where>元素</where></p>
+<p><code>&lt;where&gt;</code>元素</p>
 </blockquote>
 <p>就是增加一个where,被包含的内容有时添加，没有的时候不添加</p>
 <blockquote>
-<p><set>元素</set></p>
+<p><code>&lt;set&gt;</code>元素</p>
 </blockquote>
 <pre><code class="xml">&lt;update id=&quot;updateUserBySet&quot; parameterType=&quot;com.pojo.MyUser&quot;&gt;
     update user
@@ -1093,7 +1093,7 @@ insert into student(id,name,password) values(#{id},#{name},#{password})
     where uid = #{uid}
 &lt;/update&gt;</code></pre>
 <blockquote>
-<p><foreach>元素</foreach></p>
+<p><code>&lt;foreach&gt;</code>元素</p>
 </blockquote>
 <pre><code class="xml">&lt;select id=&quot;selectUserByForeach&quot; resultType=&quot;com.pojo.MyUser&quot; parameterType=&quot;List&quot;&gt;
     select * from user where uid in 
@@ -1102,7 +1102,7 @@ insert into student(id,name,password) values(#{id},#{name},#{password})
     &lt;/foreach&gt;
 &lt;/select&gt;</code></pre>
 <blockquote>
-<p><bind>元素,解决不同数据库拼接符号不同的问题</bind></p>
+<p><code>&lt;bind&gt;</code>元素,解决不同数据库拼接符号不同的问题</p>
 </blockquote>
 <pre><code class="xml">&lt;select id=&quot;selectUserByBind&quot; resultType=&quot;com.pojo.MyUser&quot; parameterType=&quot;com.pojo.MyUser&quot;&gt;
     &lt;bind name=&quot;param_uname&quot; value=&quot;&#39;%&#39;+uname+&#39;%&#39;&quot;&gt;&lt;/bind&gt;
