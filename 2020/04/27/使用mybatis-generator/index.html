@@ -530,8 +530,8 @@
         &lt;/javaClientGenerator&gt;
 
         &lt;!--指定每个表的生成策略--&gt;
-        &lt;table tableName=&quot;tbl_emp&quot; domainObjectName=&quot;Employee&quot;/&gt;
-        &lt;table tableName=&quot;tbl_dept&quot; domainObjectName=&quot;Department&quot;/&gt;
+        &lt;table tableName=&quot;tbl_emp&quot; domainObjectName=&quot;Employee&quot; enableCountByExample=&quot;false&quot; enableUpdateByExample=&quot;false&quot; enableDeleteByExample=&quot;false&quot; enableSelectByExample=&quot;false&quot; selectByExampleQueryId=&quot;false&quot;/&gt;
+        &lt;table tableName=&quot;tbl_dept&quot; domainObjectName=&quot;Department&quot; enableCountByExample=&quot;false&quot; enableUpdateByExample=&quot;false&quot; enableDeleteByExample=&quot;false&quot; enableSelectByExample=&quot;false&quot; selectByExampleQueryId=&quot;false&quot;/&gt;
 
     &lt;/context&gt;
 &lt;/generatorConfiguration&gt;
@@ -772,35 +772,46 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/27/ssm%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE/">
+                <a href="/2020/04/28/spring%E5%9B%BD%E9%99%85%E5%8C%96/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="ssm整合配置">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="spring 国际化">
                         
-                        <span class="card-title">ssm整合配置</span>
+                        <span class="card-title">spring 国际化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ssm整合配置1. 导入依赖包   &lt;!-- 引入项目依赖 --&gt;
-    &lt;dependencies&gt;
-        &lt;!--引入PageHelper插件--&gt;
-        &lt;depende
+                            spring 国际化1. 效果展示
+2. 导入jar包，ssm一般用到的包就行3. 创建resource文件夹，保存不同语言的文件
+在WEB-INF文件夹中创建如message_en_US.properties和message_zh_CN.
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-28
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            肖和锋
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    大学课程
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ssm/">
+                        <span class="chip bg-color">ssm</span>
+                    </a>
+                    
                 </div>
                 
             </div>
