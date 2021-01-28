@@ -664,7 +664,8 @@
 <p>数据源的配置</p>
 </blockquote>
 <p>databaseconfig.properties</p>
-<pre><code class="properties">url=jdbc:mysql://localhost:3306/mybatistest?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false
+<pre><code class="properties">driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://localhost:3306/mybatistest?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false
 username=root
 password=123456</code></pre>
 <p>mybatis-config.xml</p>
@@ -684,7 +685,7 @@ password=123456</code></pre>
 <pre><code class="xml">&lt;!--配置数据源--&gt;
 &lt;context:property-placeholder location=&quot;classpath:databaseconfig.properties&quot;/&gt;
 &lt;bean id=&quot;myDataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
-    &lt;!-- 基本属性 url、user、password,不需要配置driver --&gt;
+    &lt;property name=&quot;driverClassName&quot; value=&quot;${driver}&quot;/&gt;
     &lt;property name=&quot;url&quot; value=&quot;${url}&quot; /&gt;
     &lt;property name=&quot;username&quot; value=&quot;${username}&quot; /&gt;
     &lt;property name=&quot;password&quot; value=&quot;${password}&quot; /&gt;
@@ -887,13 +888,12 @@ password=123456</code></pre>
     &lt;context:component-scan base-package=&quot;org.example.aspect&quot;/&gt;
     &lt;context:component-scan base-package=&quot;org.example.service&quot;/&gt;
     &lt;context:component-scan base-package=&quot;org.example.dao&quot;/&gt;
-&lt;!--    开启自动代理，使@AspectJ生效--&gt;
-    &lt;aop:aspectj-autoproxy/&gt;
+
 
     &lt;!--配置数据源--&gt;
     &lt;context:property-placeholder location=&quot;classpath:database-config.properties&quot;/&gt;
     &lt;bean id=&quot;myDataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
-        &lt;!-- 基本属性 url、user、password --&gt;
+        &lt;property name=&quot;driverClassName&quot; value=&quot;${driver}&quot;/&gt;
         &lt;property name=&quot;url&quot; value=&quot;${url}&quot; /&gt;
         &lt;property name=&quot;username&quot; value=&quot;${username}&quot; /&gt;
         &lt;property name=&quot;password&quot; value=&quot;${password}&quot; /&gt;
@@ -904,28 +904,33 @@ password=123456</code></pre>
         &lt;!-- 配置获取连接等待超时的时间 --&gt;
         &lt;property name=&quot;maxWait&quot; value=&quot;60000&quot; /&gt;
     &lt;/bean&gt;
-    &lt;!--声明一个SqlSessionFactoryBean类，用来创建SqlSessionFactory--&gt;
+    &lt;!--SqlSessionFactory 会话工厂交给spring容器管理--&gt;
     &lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
         &lt;property name=&quot;dataSource&quot; ref=&quot;myDataSource&quot;/&gt;
         &lt;property name=&quot;configLocation&quot; value=&quot;classpath:mybatis-config.xml&quot;/&gt;
     &lt;/bean&gt;
-    &lt;!-- 配置dao接口扫描包，动态的实现了Dao接口可以注入到Spring容器中--&gt;
+    &lt;!-- 配置Mapper接口的扫描器--&gt;
     &lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
-        &lt;!--指定SqlSessionFactory对象的id--&gt;
+        &lt;!--注入会话工厂--&gt;
         &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;/&gt;
-        &lt;!--指定包名，MapperScannerConfigurer会扫描这个包中的接口，把每个接口都执行一个getMapper方法--&gt;
+        &lt;!--配置mapper接口所在包--&gt;
         &lt;property name=&quot;basePackage&quot; value=&quot;org.example.dao&quot;/&gt;
     &lt;/bean&gt;
 
-    &lt;!-- 为数据源添加事务管理器 --&gt;
+    &lt;!-- 配置jdbc的事务管理器 --&gt;
     &lt;bean id=&quot;txManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
         &lt;property name=&quot;dataSource&quot; ref=&quot;myDataSource&quot;&gt;&lt;/property&gt;
     &lt;/bean&gt;
-    &lt;!-- 为事务管理器注册驱动器 --&gt;
+
+    &lt;!-- 开启自动代理，使@AspectJ生效--&gt;
+    &lt;aop:aspectj-autoproxy/&gt;
+
+    &lt;!-- 启用注解事务 --&gt;
     &lt;tx:annotation-driven transaction-manager=&quot;txManager&quot;/&gt;
 
 &lt;/beans&gt;</code></pre>
-<h3 id="3-database-config-properties"><a href="#3-database-config-properties" class="headerlink" title="3. database-config.properties"></a>3. database-config.properties</h3><pre><code class="properties">url=jdbc:mysql://localhost:3306/mybatistest?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false
+<h3 id="3-database-config-properties"><a href="#3-database-config-properties" class="headerlink" title="3. database-config.properties"></a>3. database-config.properties</h3><pre><code class="properties">driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://localhost:3306/mybatistest?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false
 username=root
 password=123456</code></pre>
 <h3 id="4-mybatis-config-xml"><a href="#4-mybatis-config-xml" class="headerlink" title="4. mybatis-config.xml"></a>4. mybatis-config.xml</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
