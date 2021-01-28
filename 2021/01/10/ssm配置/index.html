@@ -663,7 +663,7 @@
 <blockquote>
 <p>数据源的配置</p>
 </blockquote>
-<p>databaseconfig.properties</p>
+<p>database-config.properties</p>
 <pre><code class="properties">driver=com.mysql.jdbc.Driver
 url=jdbc:mysql://localhost:3306/mybatistest?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false
 username=root
@@ -683,7 +683,7 @@ password=123456</code></pre>
 &lt;/configuration&gt;</code></pre>
 <p>applicationContext.xml</p>
 <pre><code class="xml">&lt;!--配置数据源--&gt;
-&lt;context:property-placeholder location=&quot;classpath:databaseconfig.properties&quot;/&gt;
+&lt;context:property-placeholder location=&quot;classpath:database-config.properties&quot;/&gt;
 &lt;bean id=&quot;myDataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
     &lt;property name=&quot;driverClassName&quot; value=&quot;${driver}&quot;/&gt;
     &lt;property name=&quot;url&quot; value=&quot;${url}&quot; /&gt;
