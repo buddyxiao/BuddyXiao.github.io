@@ -769,12 +769,12 @@ password=123456</code></pre>
         &lt;dependency&gt;
             &lt;groupId&gt;org.thymeleaf&lt;/groupId&gt;
             &lt;artifactId&gt;thymeleaf&lt;/artifactId&gt;
-            &lt;version&gt;3.0.2.RELEASE&lt;/version&gt;
+            &lt;version&gt;3.0.11.RELEASE&lt;/version&gt;
         &lt;/dependency&gt;
         &lt;dependency&gt;
             &lt;groupId&gt;org.thymeleaf&lt;/groupId&gt;
-            &lt;artifactId&gt;thymeleaf-spring4&lt;/artifactId&gt;
-            &lt;version&gt;3.0.2.RELEASE&lt;/version&gt;
+            &lt;artifactId&gt;thymeleaf-spring5&lt;/artifactId&gt;
+            &lt;version&gt;3.0.11.RELEASE&lt;/version&gt;
         &lt;/dependency&gt;
 
         &lt;!--数据库连接驱动和连接池--&gt;
@@ -826,6 +826,14 @@ password=123456</code></pre>
             &lt;version&gt;4.13&lt;/version&gt;
             &lt;scope&gt;test&lt;/scope&gt;
         &lt;/dependency&gt;
+        &lt;!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-nop --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+            &lt;artifactId&gt;slf4j-nop&lt;/artifactId&gt;
+            &lt;version&gt;1.7.25&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
 
         &lt;!--文件上传--&gt;
         &lt;dependency&gt;
@@ -875,6 +883,36 @@ password=123456</code></pre>
     &lt;/build&gt;
 
 &lt;/project&gt;</code></pre>
+<p>build.gradle</p>
+<pre><code class="gradle">dependencies {
+    testCompile group: &#39;junit&#39;, name: &#39;junit&#39;, version: &#39;4.11&#39;
+
+// https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+    compile group: &#39;org.springframework&#39;, name: &#39;spring-webmvc&#39;, version: &#39;5.2.0.RELEASE&#39;
+    // https://mvnrepository.com/artifact/org.springframework/spring-aspects
+    compile group: &#39;org.springframework&#39;, name: &#39;spring-aspects&#39;, version: &#39;5.2.0.RELEASE&#39;
+    // https://mvnrepository.com/artifact/com.alibaba/fastjson
+    compile group: &#39;com.alibaba&#39;, name: &#39;fastjson&#39;, version: &#39;1.2.68&#39;
+// https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf
+    compile group: &#39;org.thymeleaf&#39;, name: &#39;thymeleaf&#39;, version: &#39;3.0.11.RELEASE&#39;
+// https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5
+    compile group: &#39;org.thymeleaf&#39;, name: &#39;thymeleaf-spring5&#39;, version: &#39;3.0.11.RELEASE&#39;
+// https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+    compile group: &#39;org.springframework&#39;, name: &#39;spring-jdbc&#39;, version: &#39;5.2.0.RELEASE&#39;
+
+// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: &#39;mysql&#39;, name: &#39;mysql-connector-java&#39;, version: &#39;5.1.47&#39;
+    // https://mvnrepository.com/artifact/com.alibaba/druid
+    compile group: &#39;com.alibaba&#39;, name: &#39;druid&#39;, version: &#39;1.2.2&#39;
+    // https://mvnrepository.com/artifact/org.mybatis/mybatis
+    compile group: &#39;org.mybatis&#39;, name: &#39;mybatis&#39;, version: &#39;3.5.5&#39;
+// https://mvnrepository.com/artifact/org.mybatis/mybatis-spring
+    compile group: &#39;org.mybatis&#39;, name: &#39;mybatis-spring&#39;, version: &#39;2.0.5&#39;
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-nop
+    compile group: &#39;org.slf4j&#39;, name: &#39;slf4j-nop&#39;, version: &#39;1.7.25&#39;
+ // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    providedCompile group: &#39;javax.servlet&#39;, name: &#39;javax.servlet-api&#39;, version: &#39;4.0.1&#39;   
+}</code></pre>
 <h3 id="2-applicationContext-xml"><a href="#2-applicationContext-xml" class="headerlink" title="2.applicationContext.xml"></a>2.applicationContext.xml</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
        xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -987,7 +1025,7 @@ password=123456</code></pre>
     &lt;bean class=&quot;org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter&quot;/&gt;
 
     &lt;!-- 试图解析器  thymeleaf --&gt;
-    &lt;bean  id=&quot;templateResolver&quot; class=&quot;org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver&quot;&gt;
+    &lt;bean  id=&quot;templateResolver&quot; class=&quot;org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver&quot;&gt;
         &lt;!-- 映射页面位置 --&gt;
         &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/view/&quot; /&gt;
         &lt;property name=&quot;suffix&quot; value=&quot;.html&quot; /&gt;
@@ -996,11 +1034,11 @@ password=123456</code></pre>
         &lt;property name=&quot;characterEncoding&quot; value=&quot;UTF-8&quot;/&gt;&lt;!--不加会乱码--&gt;
     &lt;/bean&gt;
     &lt;bean id=&quot;templateEngine&quot;
-          class=&quot;org.thymeleaf.spring4.SpringTemplateEngine&quot;&gt;
+          class=&quot;org.thymeleaf.spring5.SpringTemplateEngine&quot;&gt;
         &lt;property name=&quot;templateResolver&quot; ref=&quot;templateResolver&quot; /&gt;
     &lt;/bean&gt;
 
-    &lt;bean class=&quot;org.thymeleaf.spring4.view.ThymeleafViewResolver&quot;&gt;
+    &lt;bean class=&quot;org.thymeleaf.spring5.view.ThymeleafViewResolver&quot;&gt;
         &lt;property name=&quot;templateEngine&quot; ref=&quot;templateEngine&quot; /&gt;
         &lt;!--解决中文乱码--&gt;
         &lt;property name=&quot;characterEncoding&quot; value=&quot;UTF-8&quot;/&gt;
@@ -1008,10 +1046,10 @@ password=123456</code></pre>
 
 &lt;/beans&gt;</code></pre>
 <h3 id="6-web-xml"><a href="#6-web-xml" class="headerlink" title="6. web.xml"></a>6. web.xml</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;web-app xmlns=&quot;https://jakarta.ee/xml/ns/jakartaee&quot;
+&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-         xsi:schemaLocation=&quot;https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd&quot;
-         version=&quot;5.0&quot;&gt;
+         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+         version=&quot;4.0&quot;&gt;
 
     &lt;listener&gt;
         &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener
