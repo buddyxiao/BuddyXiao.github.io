@@ -664,10 +664,10 @@
 <p>数据源的配置</p>
 </blockquote>
 <p>database-config.properties</p>
-<pre><code class="properties">driver=com.mysql.jdbc.Driver
-url=jdbc:mysql://localhost:3306/mybatistest?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false
-username=root
-password=123456</code></pre>
+<pre><code class="properties">jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/mybatistest?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false
+jdbc.username=root
+jdbc.password=123456</code></pre>
 <p>mybatis-config.xml</p>
 <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;!DOCTYPE configuration
@@ -685,10 +685,10 @@ password=123456</code></pre>
 <pre><code class="xml">&lt;!--配置数据源--&gt;
 &lt;context:property-placeholder location=&quot;classpath:database-config.properties&quot;/&gt;
 &lt;bean id=&quot;myDataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
-    &lt;property name=&quot;driverClassName&quot; value=&quot;${driver}&quot;/&gt;
-    &lt;property name=&quot;url&quot; value=&quot;${url}&quot; /&gt;
-    &lt;property name=&quot;username&quot; value=&quot;${username}&quot; /&gt;
-    &lt;property name=&quot;password&quot; value=&quot;${password}&quot; /&gt;
+    &lt;property name=&quot;driverClassName&quot; value=&quot;${jdbc.driver}&quot;/&gt;
+    &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot; /&gt;
+    &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot; /&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot; /&gt;
     &lt;!-- 配置初始化大小、最小、最大 --&gt;
     &lt;property name=&quot;initialSize&quot; value=&quot;5&quot; /&gt;
     &lt;property name=&quot;minIdle&quot; value=&quot;10&quot; /&gt;
@@ -937,10 +937,10 @@ password=123456</code></pre>
     &lt;!--配置数据源--&gt;
     &lt;context:property-placeholder location=&quot;classpath:database-config.properties&quot;/&gt;
     &lt;bean id=&quot;myDataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
-        &lt;property name=&quot;driverClassName&quot; value=&quot;${driver}&quot;/&gt;
-        &lt;property name=&quot;url&quot; value=&quot;${url}&quot; /&gt;
-        &lt;property name=&quot;username&quot; value=&quot;${username}&quot; /&gt;
-        &lt;property name=&quot;password&quot; value=&quot;${password}&quot; /&gt;
+        &lt;property name=&quot;driverClassName&quot; value=&quot;${jdbc.driver}&quot;/&gt;
+        &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot; /&gt;
+        &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot; /&gt;
+           &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot; /&gt;
         &lt;!-- 配置初始化大小、最小、最大 --&gt;
         &lt;property name=&quot;initialSize&quot; value=&quot;5&quot; /&gt;
         &lt;property name=&quot;minIdle&quot; value=&quot;10&quot; /&gt;
@@ -973,10 +973,10 @@ password=123456</code></pre>
     &lt;tx:annotation-driven transaction-manager=&quot;txManager&quot;/&gt;
 
 &lt;/beans&gt;</code></pre>
-<h3 id="3-database-config-properties"><a href="#3-database-config-properties" class="headerlink" title="3. database-config.properties"></a>3. database-config.properties</h3><pre><code class="properties">driver=com.mysql.jdbc.Driver
-url=jdbc:mysql://localhost:3306/mybatistest?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false
-username=root
-password=123456</code></pre>
+<h3 id="3-database-config-properties"><a href="#3-database-config-properties" class="headerlink" title="3. database-config.properties"></a>3. database-config.properties</h3><pre><code class="properties">jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/mybatistest?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false
+jdbc.username=root
+jdbc.password=123456</code></pre>
 <h3 id="4-mybatis-config-xml"><a href="#4-mybatis-config-xml" class="headerlink" title="4. mybatis-config.xml"></a>4. mybatis-config.xml</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;!DOCTYPE configuration
         PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
