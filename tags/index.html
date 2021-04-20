@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: 网站, 个人博客">
-    <meta name="description" content="分类: 网站 | 个人博客">
+    <meta name="keywords" content="标签, 个人博客">
+    <meta name="description" content="标签 | 个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>分类: 网站 | 个人博客</title>
+    <title>标签 | 个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -344,78 +344,76 @@
 
     
 
-<div id="category-cloud" class="container chip-container">
+<div id="tags" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
             </div>
             <div class="tag-chips">
                 
                 
-                
-                <a href="/categories/%E5%B7%A5%E5%85%B7/" title="工具: 1">
+                <a href="/tags/skill/" title="skill: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">工具
+                            data-tagname="skill" style="background-color: #F9EBEA;">skill
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/spring/" title="spring: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="spring" style="background-color: #F5EEF8;">spring
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/web%E6%8A%80%E6%9C%AF/" title="web技术: 2">
+                <a href="/tags/english/" title="english: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">web技术
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%94%B6%E8%97%8F/" title="收藏: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D5F5E3;">收藏
+                            data-tagname="english" style="background-color: #D5F5E3;">english
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" title="大学课程: 6">
+                <a href="/tags/springmvc/" title="springmvc: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">大学课程
-                        <span class="tag-length">6</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/ssm/" title="ssm: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #FEF9E7;">ssm
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E7%BD%91%E7%AB%99/" title="网站: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #F8F9F9;">网站
+                            data-tagname="springmvc" style="background-color: #E8F8F5;">springmvc
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/IT/" title="IT: 2">
+                <a href="/tags/ssm/" title="ssm: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #82E0AA;">IT
+                            data-tagname="ssm" style="background-color: #FEF9E7;">ssm
                         <span class="tag-length">2</span>
                     </span>
                 </a>
                 
+                
+                <a href="/tags/course/" title="course: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="course" style="background-color: #F8F9F9;">course
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/centos/" title="centos: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="centos" style="background-color: #82E0AA;">centos
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
                 
             </div>
         </div>
@@ -423,71 +421,31 @@
 </div>
 
     
+    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/09/01/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="如何搭建个人博客">
-                            
-                            <span class="card-title">如何搭建个人博客</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                使用Hexo+GitHub搭建免费个人博客1、前言(争对windows用户)1.1、准备工作
-有一个github账号，没有的话去注册一个
-本地安装git下载
-安装node.js长期版、hexo
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
 
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
 
+    $('#tag-wordcloud').jQCloud([{"text":"skill","weight":4,"link":"https://buddyxiao.github.io/tags/skill/"},{"text":"spring","weight":1,"link":"https://buddyxiao.github.io/tags/spring/"},{"text":"english","weight":1,"link":"https://buddyxiao.github.io/tags/english/"},{"text":"springmvc","weight":1,"link":"https://buddyxiao.github.io/tags/springmvc/"},{"text":"ssm","weight":2,"link":"https://buddyxiao.github.io/tags/ssm/"},{"text":"course","weight":4,"link":"https://buddyxiao.github.io/tags/course/"},{"text":"centos","weight":2,"link":"https://buddyxiao.github.io/tags/centos/"}], {
+        autoResize: true
+    });
+</script>
+    
 
-(注意)
-git下载好后需要的操作：
-
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%BD%91%E7%AB%99/" class="post-category">
-                                    网站
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/skill/">
-                            <span class="chip bg-color">skill</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-    </article>
 </main>
-
-
 
 
     <footer class="page-footer bg-color">
