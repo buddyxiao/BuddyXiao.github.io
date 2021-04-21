@@ -13,16 +13,10 @@
       
       <categories>
           
-          <category> 大学课程 </category>
+          <category> ssm </category>
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> ssm </tag>
-            
-        </tags>
       
     </entry>
     
@@ -63,14 +57,14 @@
       
       <categories>
           
-          <category> 大学课程 </category>
+          <category> ssm </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> ssm </tag>
+            <tag> springmvc </tag>
             
         </tags>
       
@@ -129,7 +123,7 @@
     
     
     <entry>
-      <title>Spring学习</title>
+      <title>SpringMVC上传和下载</title>
       <link href="2020/04/16/SpringMVC%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/"/>
       <url>2020/04/16/SpringMVC%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/</url>
       
@@ -138,7 +132,7 @@
       
       <categories>
           
-          <category> web技术 </category>
+          <category> ssm </category>
           
       </categories>
       
@@ -146,31 +140,6 @@
         <tags>
             
             <tag> springmvc </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ssm学习相关配置</title>
-      <link href="2020/03/24/ssm%E5%AD%A6%E4%B9%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
-      <url>2020/03/24/ssm%E5%AD%A6%E4%B9%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</url>
-      
-        <content type="html"><![CDATA[<h2 id="spring配置"><a href="#spring配置" class="headerlink" title="spring配置"></a>spring配置</h2><p>applicationContext.xml</p><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd        http://www.springframework.org/schema/aop        http://www.springframework.org/schema/aop/spring-aop.xsd        http://www.springframework.org/schema/tx        http://www.springframework.org/schema/tx/spring-tx.xsd           http://www.springframework.org/schema/context        http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;&lt;/beans&gt;</code></pre><p>组件扫描</p><pre><code class="xml">&lt;context:component-scan base-package=&quot;pojo&quot;&gt;&lt;/context:component-scan&gt;</code></pre><p>数据源</p><pre><code class="xml">&lt;!-- 配置数据源 --&gt;    &lt;bean id=&quot;datasource&quot; class=&quot;org.apache.commons.dbcp2.BasicDataSource&quot;&gt;        &lt;!-- MySQL 数据库驱动 --&gt;        &lt;property name=&quot;driverClassName&quot; value=&quot;com.mysql.jdbc.Driver&quot;&gt;&lt;/property&gt;        &lt;!-- 连接数据库URL --&gt;        &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf8&quot;&gt;&lt;/property&gt;        &lt;!-- 连接数据库的用户名 --&gt;        &lt;property name=&quot;username&quot; value=&quot;root&quot;&gt;&lt;/property&gt;        &lt;!-- 连接数据库的密码 --&gt;        &lt;property name=&quot;password&quot; value=&quot;123456&quot;&gt;&lt;/property&gt;        &lt;!-- 最大连接数 --&gt;        &lt;property name=&quot;maxTotal&quot; value=&quot;30&quot;&gt;&lt;/property&gt;        &lt;!-- 最大空闲连接数 --&gt;        &lt;property name=&quot;maxIdle&quot; value=&quot;10&quot;&gt;&lt;/property&gt;        &lt;!-- 初始化连接数 --&gt;        &lt;property name=&quot;initialSize&quot; value=&quot;5&quot;&gt;&lt;/property&gt;    &lt;/bean&gt;</code></pre><p>事务管理</p><pre><code class="xml">    &lt;!-- 为数据源添加事务管理器 --&gt;    &lt;bean id=&quot;txManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;        &lt;property name=&quot;dataSource&quot; ref=&quot;datasource&quot;&gt;&lt;/property&gt;    &lt;/bean&gt;</code></pre><pre><code class="xml">    &lt;!-- 为事务管理器注册驱动器 --&gt;    &lt;tx:annotation-driven transaction-manager=&quot;txManager&quot;/&gt;</code></pre><p>mybatis配置</p><pre><code class="xml">&lt;!-- 配置MyBatis工厂，同时指定数据源，并于MyBatis完美配合 --&gt;&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;    &lt;property name=&quot;dataSource&quot; ref=&quot;datasource&quot;&gt;&lt;/property&gt;    &lt;!-- configLocation的属性值为MyBatis的核心配置文件 --&gt;    &lt;property name=&quot;configLocation&quot; value=&quot;classpath:mybatis-config.xml&quot;&gt;&lt;/property&gt;&lt;/bean&gt;</code></pre><pre><code class="xml">&lt;!-- 使用Mapper代理开发，使用spring自动扫描MyBatis的接口并装配 --&gt;&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;    &lt;property name=&quot;basePackage&quot; value=&quot;dao&quot;&gt;&lt;/property&gt;    &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;&lt;/bean&gt;</code></pre><h2 id="mybatis配置"><a href="#mybatis配置" class="headerlink" title="mybatis配置"></a>mybatis配置</h2><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE configuration  PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;  &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;&lt;configuration&gt;    &lt;!-- 在使用MyBatis嵌套查询方式进行关联查询时，使用MyBatis的延时加载在一定程度可以提高查询效率 --&gt;    &lt;settings&gt;        &lt;!-- 打开延时加载的开关 --&gt;        &lt;setting name=&quot;lazyLoadingEnabled&quot; value=&quot;true&quot;/&gt;        &lt;!-- 将积极加载改为按需加载 --&gt;        &lt;setting name=&quot;aggressiveLazyLoading&quot; value=&quot;false&quot;/&gt;    &lt;/settings&gt;    &lt;mappers&gt;&lt;!-- 映射器，告诉MyBatis到哪里去找映射文件 --&gt;        &lt;mapper resource=&quot;mapper/StudentMapper.xml&quot; /&gt;        &lt;/mappers&gt;&lt;/configuration&gt;</code></pre><p>日志文件log4j.properties</p><pre><code class="properties"># Global logging configuration log4j.rootLogger=ERROR, stdout # MyBatis logging configuration... log4j.logger.dao=DEBUG # Console output... log4j.appender.stdout=org.apache.log4j.ConsoleAppender log4j.appender.stdout.layout=org.apache.log4j.PatternLayout log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 大学课程 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> course </tag>
             
         </tags>
       
@@ -188,7 +157,7 @@
       
       <categories>
           
-          <category> IT </category>
+          <category> linux </category>
           
       </categories>
       
@@ -213,7 +182,7 @@
       
       <categories>
           
-          <category> IT </category>
+          <category> linux </category>
           
       </categories>
       
@@ -296,31 +265,6 @@
         <tags>
             
             <tag> skill </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Spring学习</title>
-      <link href="2020/01/11/Spring%E5%AD%A6%E4%B9%A0/"/>
-      <url>2020/01/11/Spring%E5%AD%A6%E4%B9%A0/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Spring学习"><a href="#Spring学习" class="headerlink" title="Spring学习"></a>Spring学习</h1><p><img src="../../../../images/spring-overview.png" alt="spring-overview"></p><h2 id="IoC的操作"><a href="#IoC的操作" class="headerlink" title="IoC的操作"></a>IoC的操作</h2><pre><code class="java">ApplicationContext ac = new ClassPathXmlApplicationContext(&quot;ApplicationContext.xml&quot;);User user = (User) ac.getBean(&quot;user&quot;);</code></pre><h3 id="bean配置"><a href="#bean配置" class="headerlink" title="bean配置"></a>bean配置</h3><p><strong>在applicationContext.xml文件中</strong></p><pre><code class="xml">&lt;bean name=&quot;user&quot; class=&quot;com.shop.domain.User&quot; scope=&quot;prototype&quot;&gt;&lt;/bean&gt;</code></pre><blockquote><p>name：类的别名</p><p>class：填写类的全限定名</p><p>scope：spring框架创建的对象的范围</p><p>​                singleton ：单例模式  （默认，整个项目中的对象只有一份）</p><p>​                prototype：多例模式（在项目中每次new出来都是一个全新的）</p></blockquote><p><strong>导入其他配置文件：</strong></p><pre><code class="xml">&lt;import resource=&quot;com/shop/domain/applicationContext.xml&quot;&gt;&lt;/import&gt;</code></pre><blockquote><p>resource：填写引入配置文件的路径</p></blockquote><h3 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h3><h4 id="1-注入方式"><a href="#1-注入方式" class="headerlink" title="1. 注入方式"></a>1. <strong>注入方式</strong></h4><h6 id="1-1-setter方法注入-一般"><a href="#1-1-setter方法注入-一般" class="headerlink" title="1.1 setter方法注入(一般)"></a>1.1 setter方法注入(一般)</h6><blockquote><pre><code class="xml">&lt;!-- 注册userService --&gt;&lt;bean id=&quot;userService&quot; class=&quot;com.shop.service.impl.UserService&quot;&gt;    &lt;property name=&quot;userDao&quot; ref=&quot;userDaoMyBatis&quot;&gt;&lt;/property&gt;&lt;/bean&gt;&lt;!-- 注册mybatis实现的dao --&gt;&lt;bean id=&quot;userDaoMyBatis&quot; class=&quot;com.shop.dao.impl.UserDaoMyBatis&quot;&gt;&lt;/bean&gt;</code></pre><pre><code class="java">public class UserService implements IUserService {    private IUserDao userDao1;    public void setUserDao(IUserDao userDao1) {        this.userDao1 = userDao1;    }    public void loginUser() {        userDao1.loginUser();    }}</code></pre></blockquote><h6 id="1-2-构造方法注入"><a href="#1-2-构造方法注入" class="headerlink" title="1.2 构造方法注入"></a>1.2 构造方法注入</h6><blockquote><pre><code class="xml">&lt;!-- 注册userService --&gt;&lt;bean id=&quot;userService&quot; class=&quot;com.shop.service.impl.UserService&quot;&gt;    &lt;constructor-arg name=&quot;userDao&quot; ref=&quot;userDaoJdbc&quot;&gt;&lt;/constructor-arg&gt;    &lt;constructor-arg name=&quot;user&quot; ref=&quot;user&quot;&gt;&lt;/constructor-arg&gt;&lt;/bean&gt;&lt;!-- 注册实体User类，用于测试 --&gt;&lt;bean id=&quot;user&quot; class=&quot;com.shop.entity.User&quot;&gt;&lt;/bean&gt;&lt;!-- 注册jdbc实现的dao --&gt;&lt;bean id=&quot;userDaoJdbc&quot; class=&quot;com.shop.dao.impl.UserDaoJdbc&quot;&gt;&lt;/bean&gt;</code></pre><pre><code class="java">public class UserService implements IUserService {    private IUserDao userDao;    private User user;    public UserService(IUserDao userDao, User user) {        this.userDao = userDao;        this.user = user;    }    public void loginUser() {        userDao.loginUser();    }}</code></pre></blockquote><h6 id="1-3-基于注解注入"><a href="#1-3-基于注解注入" class="headerlink" title="1.3 基于注解注入"></a>1.3 基于注解注入</h6><h4 id="2-注入类型"><a href="#2-注入类型" class="headerlink" title="2. 注入类型"></a>2. <strong>注入类型</strong></h4><blockquote><p>基本类型    int    String</p><p>引用类型   （对象）</p><p>复杂类型    list     map     property   </p></blockquote><h6 id="2-1-注入基本类型"><a href="#2-1-注入基本类型" class="headerlink" title="2.1 注入基本类型"></a>2.1 <strong>注入基本类型</strong></h6><pre><code class="xml">&lt;bean name=&quot;user&quot; class=&quot;com.shop.domain.User&quot; scope=&quot;prototype&quot;&gt;    &lt;property name=&quot;name&quot; value=&quot;潘金莲&quot;&gt;&lt;/property&gt;    &lt;property name=&quot;age&quot; value=&quot;18&quot;&gt;&lt;/property&gt;&lt;/bean&gt;</code></pre><blockquote><p>name 属性：填写你要注入的字段名称</p><p>value 属性：填写你要注入的字段名称对应的值</p></blockquote><h6 id="2-2-注入引用类型"><a href="#2-2-注入引用类型" class="headerlink" title="2.2 注入引用类型"></a>2.2 <strong>注入引用类型</strong></h6><blockquote><ul><li>先将要注入的对象使用spring容器创建出来</li><li>再将创建好的对象注入进来</li></ul></blockquote><pre><code class="xml">&lt;bean name=&quot;carName&quot; class=&quot;com.shop.domain.Car&quot; scope=&quot;prototype&quot;&gt;    &lt;property name=&quot;name&quot; value=&quot;保时捷&quot;&gt;&lt;/property&gt;    &lt;property name=&quot;color&quot; value=&quot;黄色&quot;&gt;&lt;/property&gt;&lt;/bean&gt;&lt;bean name=&quot;user&quot; class=&quot;com.shop.domain.User&quot; scope=&quot;prototype&quot;&gt;    &lt;property name=&quot;name&quot; value=&quot;潘金莲&quot;&gt;&lt;/property&gt;    &lt;property name=&quot;age&quot; value=&quot;18&quot;&gt;&lt;/property&gt;    &lt;property name=&quot;car&quot; ref=&quot;carName&quot;&gt;&lt;/property&gt;&lt;/bean&gt;</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> web技术 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> spring </tag>
             
         </tags>
       
